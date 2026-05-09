@@ -3,965 +3,712 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>لستم وحدكم أبدًا – قلق الوالدين في طب الأطفال | براهيم خميسي</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<title>لستم وحدكم أبدًا – قلق الوالدين في طب الأطفال</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
-  :root {
-    --navy: #0a2342;
-    --teal: #1a7f8e;
-    --teal-light: #22a8bc;
-    --gold: #e8a020;
-    --gold-light: #f5c842;
-    --rose: #c0395a;
-    --soft-white: #f8fafc;
-    --card-bg: #ffffff;
-    --text-dark: #0d1b2a;
-    --text-mid: #2c4a6e;
-    --text-soft: #5a7a9a;
-    --border: rgba(26,127,142,0.15);
-    --shadow: 0 8px 40px rgba(10,35,66,0.10);
-    --shadow-hover: 0 20px 60px rgba(10,35,66,0.18);
-  }
+:root {
+  --navy: #0a2342;
+  --navy2: #0d3060;
+  --teal: #1a7f8e;
+  --teal-l: #22a8bc;
+  --gold: #e8a020;
+  --gold-l: #f5c842;
+  --rose: #c0395a;
+  --green: #2a7a4a;
+  --soft: #f4f8fb;
+  --white: #ffffff;
+  --text: #0d1b2a;
+  --mid: #2c4a6e;
+  --muted: #5a7a9a;
+  --border: rgba(26,127,142,0.13);
+  --sh: 0 8px 40px rgba(10,35,66,0.09);
+  --sh2: 0 20px 60px rgba(10,35,66,0.16);
+  --r: 18px;
+  --r2: 28px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo','Tajawal',sans-serif;background:var(--soft);color:var(--text);overflow-x:hidden;direction:rtl}
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── PROGRESS BAR ── */
+#progress{position:fixed;top:0;right:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:999;transform-origin:right;transform:scaleX(0);transition:transform .1s}
 
-  html { scroll-behavior: smooth; }
+/* ── NAV ── */
+nav{position:fixed;top:3px;right:0;left:0;z-index:100;padding:14px 30px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(10,35,66,0.96);backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.2)}
+.nav-brand{color:white;font-size:.95rem;font-weight:800;display:flex;align-items:center;gap:8px}
+.nav-dot{width:8px;height:8px;background:var(--teal-l);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.78rem;font-weight:600;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--teal-l)}
 
-  body {
-    font-family: 'Cairo', 'Tajawal', sans-serif;
-    background: var(--soft-white);
-    color: var(--text-dark);
-    overflow-x: hidden;
-    direction: rtl;
-  }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#1a5c80 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 20px 100px;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 30%,rgba(26,127,142,.22) 0%,transparent 70%),radial-gradient(ellipse 50% 70% at 80% 70%,rgba(232,160,32,.1) 0%,transparent 60%);pointer-events:none}
+.hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-particles span{position:absolute;border-radius:50%;opacity:.06;animation:floatP linear infinite}
+@keyframes floatP{0%{transform:translateY(100vh) scale(0)}100%{transform:translateY(-100px) scale(1)}}
+.inst-row{display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:28px;flex-wrap:wrap;position:relative;z-index:2}
+.inst-pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:7px 18px;color:rgba(255,255,255,.82);font-size:.72rem;font-weight:600;letter-spacing:.04em;backdrop-filter:blur(10px)}
+.hero-eyebrow{color:var(--gold-l);font-size:1rem;font-weight:500;letter-spacing:.1em;margin-bottom:14px;position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--gold-l);opacity:.4}
+.hero-title{font-size:clamp(2.6rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px;position:relative;z-index:2;text-shadow:0 4px 30px rgba(0,0,0,.3);opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-title .hl{color:var(--teal-l);position:relative;display:inline-block}
+.hero-title .hl::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;background:var(--gold);border-radius:2px;opacity:.7}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.72);font-weight:300;margin-bottom:44px;position:relative;z-index:2;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-pills{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:48px;opacity:0;animation:fadeUp .8s .9s forwards}
+.hero-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px);border-radius:16px;padding:18px 28px;text-align:center;transition:all .3s;cursor:default}
+.hero-pill:hover{transform:translateY(-4px);background:rgba(255,255,255,.12)}
+.hero-pill .p-num{display:block;font-size:2.2rem;font-weight:900;color:var(--gold-l);line-height:1}
+.hero-pill .p-lbl{display:block;font-size:.72rem;color:rgba(255,255,255,.6);margin-top:5px;font-weight:500;max-width:120px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;text-decoration:none;padding:15px 38px;border-radius:50px;font-size:.95rem;font-weight:700;position:relative;z-index:2;box-shadow:0 8px 30px rgba(26,127,142,.5);transition:all .3s;opacity:0;animation:fadeUp .8s 1.1s forwards;cursor:pointer;border:none}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(26,127,142,.6)}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.35);font-size:.65rem;letter-spacing:.1em;animation:bounce 2s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-  /* ─── HERO ─── */
-  .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, #0d3060 40%, #1a5c80 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 60px 20px 80px;
-    text-align: center;
-  }
+/* ── SECTIONS BASE ── */
+section{padding:90px 20px}
+.container{max-width:1080px;margin:0 auto}
+.sec-label{display:inline-block;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.sec-title .ac{color:var(--teal)}
+.sec-desc{font-size:1rem;color:var(--muted);line-height:1.85;max-width:580px}
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(26,127,142,0.25) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 80% 70%, rgba(232,160,32,0.12) 0%, transparent 60%);
-    pointer-events: none;
-  }
+/* ── WHO WE ARE ── */
+.who-section{background:#fff}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px}
+.who-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--r2);padding:36px 32px;position:relative;overflow:hidden;transition:all .3s}
+.who-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--teal-l));border-radius:4px 4px 0 0}
+.who-card:hover{box-shadow:var(--sh2);transform:translateY(-5px)}
+.who-avatar{width:64px;height:64px;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:20px;box-shadow:0 8px 24px rgba(10,35,66,.2)}
+.who-card h3{font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:4px}
+.who-card .role{font-size:.78rem;color:var(--teal);font-weight:600;margin-bottom:14px;letter-spacing:.04em}
+.who-card p{font-size:.88rem;color:var(--mid);line-height:1.75}
+.who-mission{margin-top:36px;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r2);padding:40px 44px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden}
+.who-mission::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(26,127,142,.25),transparent 60%)}
+.who-mission h3{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:10px;position:relative}
+.who-mission p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.8;position:relative}
+.mission-badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:20px 24px;text-align:center;position:relative;flex-shrink:0}
+.mission-badge .m-num{display:block;font-size:2.8rem;font-weight:900;color:var(--gold-l);line-height:1}
+.mission-badge .m-lbl{display:block;font-size:.7rem;color:rgba(255,255,255,.55);margin-top:4px}
 
-  .hero-orbs {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.07;
-    animation: floatOrb 8s ease-in-out infinite;
-  }
-  .orb-1 { width: 500px; height: 500px; background: var(--teal-light); top: -150px; right: -100px; animation-delay: 0s; }
-  .orb-2 { width: 300px; height: 300px; background: var(--gold); bottom: -100px; left: 5%; animation-delay: 3s; }
-  .orb-3 { width: 200px; height: 200px; background: var(--rose); top: 40%; left: -80px; animation-delay: 6s; }
+/* ── WHY SECTION ── */
+.why-section{background:linear-gradient(180deg,#edf5f8 0%,#fff 100%)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:52px}
+.why-cards{display:flex;flex-direction:column;gap:14px}
+.why-card-item{display:flex;align-items:flex-start;gap:16px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;transition:all .3s;cursor:default}
+.why-card-item:hover{transform:translateX(-6px);border-color:var(--teal-l);box-shadow:var(--sh)}
+.why-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--teal),var(--teal-l));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;color:#fff}
+.why-card-item h4{font-size:.9rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.why-card-item p{font-size:.82rem;color:var(--muted);line-height:1.6}
+.big-stat{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r2);padding:48px 40px;text-align:center;position:relative;overflow:hidden}
+.big-stat::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(26,127,142,.3),transparent 65%)}
+.big-stat .bn{font-size:5.5rem;font-weight:900;color:var(--gold-l);line-height:1;position:relative}
+.big-stat .bn sup{font-size:2rem;vertical-align:super}
+.big-stat p{font-size:.95rem;color:rgba(255,255,255,.72);margin-top:10px;line-height:1.7;position:relative}
+.big-stat .note{margin-top:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 18px;font-size:.76rem;color:rgba(255,255,255,.5);position:relative}
 
-  @keyframes floatOrb {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-30px) scale(1.05); }
-  }
+/* ── METHODOLOGY ── */
+.method-section{background:#fff}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:52px;position:relative}
+.timeline::before{content:'';position:absolute;right:27px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--teal),var(--teal-l),var(--gold));border-radius:2px}
+.tl-item{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:flex-start;padding-bottom:36px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{width:56px;height:56px;background:linear-gradient(135deg,var(--teal),var(--teal-l));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;position:relative;z-index:1;box-shadow:0 6px 20px rgba(26,127,142,.3)}
+.tl-content{background:var(--soft);border:1px solid var(--border);border-radius:var(--r);padding:22px 26px;transition:all .3s}
+.tl-content:hover{box-shadow:var(--sh);border-color:var(--teal-l)}
+.tl-content h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:6px}
+.tl-content p{font-size:.85rem;color:var(--mid);line-height:1.7}
+.tl-content .tl-badge{display:inline-block;background:rgba(26,127,142,.1);color:var(--teal);font-size:.68rem;font-weight:700;padding:3px 12px;border-radius:50px;margin-top:10px;letter-spacing:.06em}
 
-  .institutions {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 2;
-  }
-  .inst-badge {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 50px;
-    padding: 8px 20px;
-    color: rgba(255,255,255,0.85);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-  .inst-sep { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
+/* ── RESULTS ── */
+.results-section{background:linear-gradient(135deg,var(--navy) 0%,#0d3060 100%);position:relative;overflow:hidden}
+.results-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 20%,rgba(26,127,142,.2),transparent 60%)}
+.results-section .sec-label{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.results-section .sec-title{color:#fff}
+.results-section .sec-desc{color:rgba(255,255,255,.6)}
+.results-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.r-card{border-radius:var(--r2);padding:32px 24px;text-align:center;position:relative;overflow:hidden;transition:transform .3s;border:1px solid rgba(255,255,255,.08)}
+.r-card:hover{transform:scale(1.04)}
+.r-card.c1{background:linear-gradient(135deg,rgba(26,127,142,.4),rgba(34,168,188,.3))}
+.r-card.c2{background:linear-gradient(135deg,rgba(192,57,90,.4),rgba(220,70,100,.3))}
+.r-card.c3{background:linear-gradient(135deg,rgba(232,160,32,.35),rgba(245,200,66,.25))}
+.r-card .r-icon{font-size:2rem;display:block;margin-bottom:14px}
+.r-card .r-num{font-size:3rem;font-weight:900;color:#fff;line-height:1;display:block}
+.r-card .r-lbl{font-size:.82rem;color:rgba(255,255,255,.75);margin-top:8px;line-height:1.5}
+/* Bar charts */
+.bars-section{margin-top:52px}
+.bars-title{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:24px;text-align:center}
+.bar-item{margin-bottom:18px}
+.bar-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.bar-label span:first-child{font-size:.85rem;color:rgba(255,255,255,.8);font-weight:600}
+.bar-label span:last-child{font-size:.85rem;color:var(--gold-l);font-weight:800}
+.bar-track{background:rgba(255,255,255,.08);border-radius:50px;height:10px;overflow:hidden}
+.bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--teal),var(--teal-l));width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.bar-fill.gold{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.bar-fill.rose{background:linear-gradient(90deg,var(--rose),#e05075)}
+/* World compare */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
+.cmp-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r);padding:24px;backdrop-filter:blur(8px)}
+.cmp-card .cmp-flag{font-size:1.8rem;margin-bottom:10px;display:block}
+.cmp-card h4{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:8px}
+.cmp-card .cmp-bar-track{background:rgba(255,255,255,.1);border-radius:50px;height:8px;margin-bottom:8px;overflow:hidden}
+.cmp-card .cmp-bar-fill{height:100%;border-radius:50px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+.cmp-card .cmp-num{font-size:1.4rem;font-weight:900;color:var(--gold-l)}
 
-  .hero-tagline {
-    color: var(--gold-light);
-    font-size: 1.1rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  .hero-tagline::before, .hero-tagline::after {
-    content: '—';
-    opacity: 0.5;
-  }
+/* ── ANXIETY TEST ── */
+.test-section{background:var(--soft)}
+.test-box{max-width:700px;margin:52px auto 0;background:#fff;border-radius:var(--r2);padding:48px 44px;box-shadow:var(--sh2);border:1px solid var(--border)}
+.test-progress{display:flex;gap:8px;margin-bottom:36px;justify-content:center}
+.test-progress span{height:4px;border-radius:4px;background:#e0e8f0;transition:all .4s;flex:1}
+.test-progress span.done{background:var(--teal)}
+.test-progress span.active{background:var(--gold)}
+.test-q{font-size:1.15rem;font-weight:700;color:var(--navy);line-height:1.7;margin-bottom:28px;min-height:60px}
+.test-options{display:flex;flex-direction:column;gap:12px}
+.test-opt{background:var(--soft);border:2px solid var(--border);border-radius:14px;padding:14px 20px;font-size:.9rem;color:var(--mid);font-weight:600;cursor:pointer;transition:all .3s;text-align:right;font-family:'Cairo',sans-serif}
+.test-opt:hover{border-color:var(--teal-l);color:var(--teal);background:#f0fafc}
+.test-opt.selected{border-color:var(--teal);background:rgba(26,127,142,.08);color:var(--teal)}
+.test-result{text-align:center;animation:fadeUp .6s forwards}
+.test-result .res-emoji{font-size:3.5rem;display:block;margin-bottom:16px}
+.test-result h3{font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:12px}
+.test-result p{font-size:.92rem;color:var(--mid);line-height:1.8;margin-bottom:24px}
+.test-result .res-tip{background:rgba(26,127,142,.07);border:1px solid rgba(26,127,142,.15);border-radius:14px;padding:18px 22px;font-size:.85rem;color:var(--mid);line-height:1.7;text-align:right}
+.btn-next{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;border:none;border-radius:50px;padding:13px 32px;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:24px;transition:all .3s;font-family:'Cairo',sans-serif}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,127,142,.4)}
+.btn-retry{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal);border:2px solid var(--teal);border-radius:50px;padding:11px 28px;font-size:.85rem;font-weight:700;cursor:pointer;margin-top:12px;transition:all .3s;font-family:'Cairo',sans-serif}
+.btn-retry:hover{background:var(--teal);color:#fff}
 
-  .hero-title {
-    font-size: clamp(2.8rem, 8vw, 6rem);
-    font-weight: 900;
-    color: #ffffff;
-    line-height: 1.1;
-    margin-bottom: 12px;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
-  }
-  .hero-title span {
-    color: var(--teal-light);
-    position: relative;
-    display: inline-block;
-  }
-  .hero-title span::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    right: 0;
-    left: 0;
-    height: 4px;
-    background: var(--gold);
-    border-radius: 2px;
-    opacity: 0.7;
-  }
+/* ── WHY ANXIETY (CAUSES) ── */
+.causes-section{background:#fff}
+.causes-intro{background:linear-gradient(135deg,#fff8f0,#fef3e8);border:1px solid rgba(232,160,32,.2);border-radius:var(--r2);padding:32px 36px;margin-bottom:44px;text-align:center}
+.causes-intro p{font-size:1.05rem;color:var(--mid);line-height:1.9;font-weight:500}
+.causes-intro p strong{color:var(--navy);font-weight:800}
+.causes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cause-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px;text-align:center;transition:all .35s;position:relative;overflow:hidden;cursor:default}
+.cause-card::after{content:'';position:absolute;bottom:0;right:0;left:0;height:3px;border-radius:0 0 var(--r2) var(--r2);opacity:0;transition:opacity .3s}
+.cause-card:hover{transform:translateY(-7px);box-shadow:var(--sh2)}
+.cause-card:hover::after{opacity:1}
+.cause-card.t1::after{background:linear-gradient(90deg,var(--teal),var(--teal-l))}
+.cause-card.t2::after{background:linear-gradient(90deg,var(--rose),#e05075)}
+.cause-card.t3::after{background:linear-gradient(90deg,var(--gold),var(--gold-l))}
+.cause-card.t4::after{background:linear-gradient(90deg,var(--green),#3a9a5a)}
+.cause-card.t5::after{background:linear-gradient(90deg,#7c3d9e,#9b5dbe)}
+.cause-card.t6::after{background:linear-gradient(90deg,#1a5c80,var(--teal))}
+.cause-icon{font-size:2.4rem;margin-bottom:16px;display:block}
+.cause-card h3{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+.cause-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-  .hero-subtitle {
-    font-size: 1.3rem;
-    color: rgba(255,255,255,0.75);
-    font-weight: 300;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-  }
+/* ── SUPPORT / TRANSITION ── */
+.support-section{background:linear-gradient(135deg,#f0f7fa 0%,#fff 100%)}
+.support-transition{text-align:center;max-width:680px;margin:0 auto 56px;padding:40px;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r2);color:#fff;position:relative;overflow:hidden}
+.support-transition::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(26,127,142,.3),transparent 60%)}
+.support-transition .st-icon{font-size:3rem;display:block;margin-bottom:16px;position:relative}
+.support-transition h2{font-size:1.6rem;font-weight:900;margin-bottom:12px;position:relative}
+.support-transition p{font-size:.92rem;color:rgba(255,255,255,.7);line-height:1.8;position:relative}
+.support-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.support-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:30px 22px;text-align:center;transition:all .35s;position:relative;overflow:hidden}
+.support-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--teal-l));opacity:0;transition:opacity .3s}
+.support-card:hover{transform:translateY(-7px);box-shadow:var(--sh2)}
+.support-card:hover::before{opacity:1}
+.support-card .s-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--teal),var(--teal-l));border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 18px;box-shadow:0 6px 20px rgba(26,127,142,.25)}
+.support-card h3{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+.support-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-  .hero-stats {
-    display: flex;
-    gap: 24px;
-    justify-content: center;
-    flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
-    margin-bottom: 48px;
-  }
-  .stat-pill {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 20px 32px;
-    text-align: center;
-    transition: transform 0.3s, background 0.3s;
-  }
-  .stat-pill:hover { transform: translateY(-4px); background: rgba(255,255,255,0.13); }
-  .stat-pill .num {
-    display: block;
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: var(--gold-light);
-    line-height: 1;
-  }
-  .stat-pill .lbl {
-    display: block;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.65);
-    margin-top: 6px;
-    font-weight: 500;
-    max-width: 130px;
-  }
+/* ── TIPS ── */
+.tips-section{background:linear-gradient(135deg,var(--navy),var(--navy2));position:relative;overflow:hidden}
+.tips-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 20%,rgba(26,127,142,.18),transparent 60%)}
+.tips-section .sec-label{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.tips-section .sec-title{color:#fff}
+.tips-section .sec-desc{color:rgba(255,255,255,.6)}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:52px;position:relative}
+.tip-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:var(--r2);padding:26px 22px;backdrop-filter:blur(8px);transition:all .3s;cursor:default}
+.tip-card:hover{background:rgba(255,255,255,.1);transform:translateY(-5px);border-color:rgba(26,127,142,.4)}
+.tip-card .t-icon{font-size:2rem;margin-bottom:14px;display:block}
+.tip-card h3{font-size:.95rem;font-weight:800;color:var(--gold-l);margin-bottom:8px}
+.tip-card p{font-size:.8rem;color:rgba(255,255,255,.63);line-height:1.7}
+.tip-card .t-badge{display:inline-block;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:.65rem;padding:3px 10px;border-radius:50px;margin-top:10px;letter-spacing:.06em}
 
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--teal), var(--teal-light));
-    color: white;
-    text-decoration: none;
-    padding: 16px 40px;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    position: relative;
-    z-index: 2;
-    box-shadow: 0 8px 30px rgba(26,127,142,0.5);
-    transition: all 0.3s;
-  }
-  .hero-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 40px rgba(26,127,142,0.6);
-  }
-  .hero-cta .arrow { font-size: 1.2rem; transition: transform 0.3s; }
-  .hero-cta:hover .arrow { transform: translateX(-4px); }
+/* ── NURSE ROLE ── */
+.nurse-section{background:var(--soft)}
+.nurse-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:52px;align-items:start}
+.nurse-left h3{font-size:1.2rem;font-weight:900;color:var(--navy);margin-bottom:20px}
+.nurse-roles{display:flex;flex-direction:column;gap:12px}
+.nr-item{display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;transition:all .3s}
+.nr-item:hover{border-color:var(--teal-l);box-shadow:var(--sh);transform:translateX(-4px)}
+.nr-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.nr-item p{font-size:.85rem;color:var(--mid);line-height:1.65}
+.nurse-quote{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r2);padding:40px 36px;color:#fff;position:relative;overflow:hidden}
+.nurse-quote::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 100%,rgba(26,127,142,.3),transparent 60%)}
+.nurse-quote .nq-mark{font-size:5rem;color:var(--gold-l);line-height:.5;display:block;margin-bottom:20px;opacity:.4;position:relative}
+.nurse-quote p{font-size:1rem;color:rgba(255,255,255,.82);line-height:1.9;position:relative;font-weight:500}
+.nurse-quote .nq-sign{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.78rem;color:rgba(255,255,255,.45);position:relative}
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    animation: bounceDown 2s ease-in-out infinite;
-  }
-  .scroll-hint .dot {
-    width: 6px; height: 6px;
-    background: rgba(255,255,255,0.3);
-    border-radius: 50%;
-  }
-  @keyframes bounceDown {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
+/* ── VIDEOS ── */
+.videos-section{background:#fff}
+.videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.vid-card{background:var(--soft);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all .3s;cursor:pointer}
+.vid-card:hover{box-shadow:var(--sh2);transform:translateY(-5px)}
+.vid-thumb{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.vid-thumb.v1{background:linear-gradient(135deg,#1a4080,var(--teal))}
+.vid-thumb.v2{background:linear-gradient(135deg,#2a7a4a,#3ab56a)}
+.vid-thumb.v3{background:linear-gradient(135deg,#7c3d9e,#a05dc0)}
+.vid-play{width:54px;height:54px;background:rgba(255,255,255,.2);border:2px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;backdrop-filter:blur(8px);transition:all .3s}
+.vid-card:hover .vid-play{background:rgba(255,255,255,.35);transform:scale(1.12)}
+.vid-thumb .vid-duration{position:absolute;bottom:10px;left:12px;background:rgba(0,0,0,.5);color:#fff;font-size:.7rem;padding:3px 9px;border-radius:50px;font-weight:600}
+.vid-body{padding:20px 18px}
+.vid-body h3{font-size:.92rem;font-weight:800;color:var(--navy);margin-bottom:6px}
+.vid-body p{font-size:.78rem;color:var(--muted);line-height:1.6}
+.vid-body .vid-tag{display:inline-block;background:rgba(26,127,142,.08);color:var(--teal);font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-top:10px;letter-spacing:.06em}
 
-  /* ─── SECTION BASE ─── */
-  section { padding: 90px 20px; }
-  .container { max-width: 1100px; margin: 0 auto; }
+/* ── AI SECTION ── */
+.ai-section{background:linear-gradient(180deg,var(--soft) 0%,#fff 100%)}
+.ai-intro{text-align:center;max-width:600px;margin:0 auto 44px}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ai-card{background:#fff;border:1px solid var(--border);border-radius:var(--r2);padding:30px 24px;text-align:center;transition:all .3s;text-decoration:none;display:block}
+.ai-card:hover{box-shadow:var(--sh2);transform:translateY(-6px);border-color:var(--teal-l)}
+.ai-logo{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px;font-weight:900;color:#fff}
+.ai-logo.gpt{background:linear-gradient(135deg,#10a37f,#1a7f64)}
+.ai-logo.gem{background:linear-gradient(135deg,#4285f4,#1a73e8)}
+.ai-logo.cld{background:linear-gradient(135deg,#cc785c,#d4956a)}
+.ai-card h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:8px}
+.ai-card p{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.ai-card .ai-btn{display:inline-block;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;font-size:.75rem;font-weight:700;padding:8px 20px;border-radius:50px;transition:all .3s}
+.ai-card:hover .ai-btn{box-shadow:0 6px 18px rgba(26,127,142,.4)}
+.ai-note{text-align:center;margin-top:28px;font-size:.78rem;color:var(--muted);background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.18);border-radius:12px;padding:14px 20px;max-width:600px;margin-left:auto;margin-right:auto}
 
-  .section-label {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--teal), var(--teal-light));
-    color: white;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 50px;
-    margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 900;
-    color: var(--navy);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-  .section-title .accent { color: var(--teal); }
-  .section-desc {
-    font-size: 1.05rem;
-    color: var(--text-soft);
-    line-height: 1.8;
-    max-width: 600px;
-  }
+/* ── MESSAGE ── */
+.msg-section{background:linear-gradient(135deg,#fff8f0,#fef3e8);padding:80px 20px}
+.msg-box{max-width:740px;margin:0 auto;background:#fff;border-radius:var(--r2);padding:56px 52px;box-shadow:0 20px 60px rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.18);text-align:center;position:relative;overflow:hidden}
+.msg-box::before{content:'❤';position:absolute;font-size:14rem;opacity:.025;top:-40px;right:-40px;line-height:1}
+.msg-mark{font-size:5rem;color:var(--gold-l);line-height:.5;display:block;margin-bottom:22px;opacity:.35}
+.msg-box p{font-size:1.1rem;color:var(--mid);line-height:1.95;font-weight:500}
+.msg-box p strong{color:var(--navy);font-weight:900}
+.msg-sign{margin-top:30px;padding-top:22px;border-top:1px solid #f0e8d8;font-size:.82rem;color:var(--muted);line-height:1.7}
 
-  /* ─── WHY SECTION ─── */
-  .why-section { background: white; }
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    margin-top: 60px;
-  }
-  .why-cards { display: flex; flex-direction: column; gap: 16px; }
-  .why-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    background: var(--soft-white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px 24px;
-    transition: all 0.3s;
-    cursor: default;
-  }
-  .why-card:hover {
-    transform: translateX(-6px);
-    border-color: var(--teal-light);
-    box-shadow: var(--shadow);
-  }
-  .why-card .icon {
-    width: 44px; height: 44px;
-    background: linear-gradient(135deg, var(--teal), var(--teal-light));
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    color: white;
-  }
-  .why-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-  .why-card p { font-size: 0.85rem; color: var(--text-soft); line-height: 1.6; }
+/* ── QR ── */
+.qr-section{background:#fff;padding:80px 20px}
+.qr-box{max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center;background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:var(--r2);padding:56px;position:relative;overflow:hidden}
+.qr-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 100% 50%,rgba(26,127,142,.2),transparent 60%)}
+.qr-content{position:relative}
+.qr-content .sec-label{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.qr-content h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:12px}
+.qr-content p{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:22px}
+.qr-feats{list-style:none;display:flex;flex-direction:column;gap:10px}
+.qr-feats li{display:flex;align-items:center;gap:10px;font-size:.85rem;color:rgba(255,255,255,.72)}
+.qr-feats li .ck{width:20px;height:20px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#fff;flex-shrink:0}
+.qr-display{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:14px}
+.qr-frame{background:#fff;border-radius:18px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.qr-cap{color:rgba(255,255,255,.45);font-size:.65rem;text-align:center;letter-spacing:.1em}
 
-  .stat-showcase {
-    background: linear-gradient(135deg, var(--navy), #1a4080);
-    border-radius: 28px;
-    padding: 50px 40px;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-  }
-  .stat-showcase::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(26,127,142,0.3), transparent 70%);
-  }
-  .stat-showcase .big-num {
-    font-size: 6rem;
-    font-weight: 900;
-    color: var(--gold-light);
-    line-height: 1;
-    position: relative;
-  }
-  .stat-showcase .big-num sup { font-size: 2rem; vertical-align: super; }
-  .stat-showcase p { font-size: 1rem; color: rgba(255,255,255,0.75); margin-top: 12px; line-height: 1.7; position: relative; }
-  .stat-showcase .note {
-    margin-top: 24px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px;
-    padding: 14px 20px;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    position: relative;
-  }
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.55);text-align:center;padding:44px 20px;font-size:.8rem;line-height:1.9}
+footer strong{color:rgba(255,255,255,.88)}
+.footer-top{display:flex;justify-content:center;gap:24px;margin-bottom:20px;opacity:.45;font-size:.72rem;letter-spacing:.07em;flex-wrap:wrap}
+.footer-academic{margin-top:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px 28px;max-width:640px;margin-left:auto;margin-right:auto;font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.8}
 
-  /* ─── FEELINGS ─── */
-  .feelings-section {
-    background: linear-gradient(180deg, #f0f7fa 0%, white 100%);
-  }
-  .feelings-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 50px;
-    justify-content: center;
-  }
-  .feeling-tag {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 60px;
-    padding: 14px 28px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-mid);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    transition: all 0.3s;
-    cursor: default;
-  }
-  .feeling-tag:hover {
-    border-color: var(--teal);
-    color: var(--teal);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(26,127,142,0.15);
-  }
-  .feeling-tag .dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-  }
+/* ── EMERGENCY BTN ── */
+.emergency-btn{position:fixed;bottom:28px;left:28px;z-index:200;background:linear-gradient(135deg,var(--rose),#e05075);color:#fff;border:none;border-radius:50px;padding:13px 24px;font-size:.82rem;font-weight:700;cursor:pointer;box-shadow:0 8px 30px rgba(192,57,90,.5);transition:all .3s;font-family:'Cairo',sans-serif;display:flex;align-items:center;gap:8px;animation:emergPulse 3s ease-in-out infinite}
+@keyframes emergPulse{0%,100%{box-shadow:0 8px 30px rgba(192,57,90,.5)}50%{box-shadow:0 12px 40px rgba(192,57,90,.7),0 0 0 6px rgba(192,57,90,.12)}}
+.emergency-btn:hover{transform:translateY(-3px)}
+.emergency-modal{display:none;position:fixed;inset:0;z-index:500;background:rgba(10,35,66,.85);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px}
+.emergency-modal.open{display:flex}
+.em-box{background:#fff;border-radius:var(--r2);padding:44px;max-width:500px;width:100%;text-align:center;position:relative;animation:fadeUp .4s forwards}
+.em-box h3{font-size:1.3rem;font-weight:900;color:var(--navy);margin-bottom:12px}
+.em-box p{font-size:.9rem;color:var(--mid);line-height:1.8;margin-bottom:24px}
+.em-steps{text-align:right;list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.em-steps li{display:flex;align-items:flex-start;gap:12px;font-size:.87rem;color:var(--mid);line-height:1.6}
+.em-steps li .step-n{width:26px;height:26px;background:linear-gradient(135deg,var(--teal),var(--teal-l));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;font-weight:800;flex-shrink:0}
+.em-close{background:var(--navy);color:#fff;border:none;border-radius:50px;padding:12px 28px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Cairo',sans-serif;transition:all .3s}
+.em-close:hover{background:var(--teal)}
 
-  /* ─── SUPPORT STEPS ─── */
-  .support-section { background: white; }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 24px;
-    margin-top: 60px;
-  }
-  .step-card {
-    background: var(--soft-white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.35s;
-  }
-  .step-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--teal), var(--teal-light));
-    border-radius: 4px 4px 0 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .step-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: transparent; }
-  .step-card:hover::before { opacity: 1; }
-  .step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px; height: 48px;
-    background: linear-gradient(135deg, var(--teal), var(--teal-light));
-    border-radius: 14px;
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-  }
-  .step-card h3 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
-  .step-card p { font-size: 0.83rem; color: var(--text-soft); line-height: 1.7; }
+/* ── DARK MODE ── */
+@media(prefers-color-scheme:dark){
+  :root{--soft:#0d1b2a;--white:#0d1b2a;--text:#e8f0f8;--mid:#a0b8d0;--muted:#6a8aa8;--border:rgba(26,127,142,.2)}
+  body{background:var(--soft)}
+  .who-section,.method-section,.causes-section,.videos-section,.qr-section{background:#0d1b2a}
+  .support-section{background:linear-gradient(180deg,#081520 0%,#0d1b2a 100%)}
+  .ai-section{background:linear-gradient(180deg,#081520 0%,#0d1b2a 100%)}
+  .why-section{background:linear-gradient(180deg,#081520 0%,#0d1b2a 100%)}
+  .who-card,.tl-content,.why-card-item,.nr-item,.support-card,.cause-card,.vid-card,.ai-card,.msg-box{background:#111e2e;border-color:rgba(26,127,142,.18)}
+  .test-box{background:#111e2e;border-color:rgba(26,127,142,.18)}
+  .test-opt{background:#0d1b2a}
+  .nurse-section{background:#081520}
+  .msg-section{background:linear-gradient(135deg,#0f1a25,#121e2a)}
+  .sec-title{color:#e8f0f8}
+  .who-card h3,.why-card-item h4,.tl-content h3,.cause-card h3,.support-card h3,.tip-card h3,.nr-item h3,.vid-body h3,.ai-card h3,.msg-box strong{color:#e8f0f8}
+}
 
-  /* ─── TIPS ─── */
-  .tips-section {
-    background: linear-gradient(135deg, var(--navy) 0%, #0d3060 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .tips-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(26,127,142,0.2), transparent 60%);
-  }
-  .tips-section .section-title { color: white; }
-  .tips-section .section-desc { color: rgba(255,255,255,0.6); }
-  .tips-section .section-label {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-  }
-  .tips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin-top: 60px;
-  }
-  .tip-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 28px 24px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s;
-    position: relative;
-  }
-  .tip-card:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-5px);
-    border-color: rgba(26,127,142,0.5);
-  }
-  .tip-card .tip-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    display: block;
-  }
-  .tip-card h3 { font-size: 1rem; font-weight: 800; color: var(--gold-light); margin-bottom: 8px; }
-  .tip-card p { font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
-
-  /* ─── RECOMMENDATIONS ─── */
-  .reco-section { background: var(--soft-white); }
-  .reco-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 60px;
-  }
-  .reco-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s;
-  }
-  .reco-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
-  .reco-card .reco-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: 50px;
-    margin-bottom: 16px;
-  }
-  .reco-card.for-parents .reco-label { background: rgba(26,127,142,0.1); color: var(--teal); }
-  .reco-card.for-nurses .reco-label { background: rgba(192,57,90,0.1); color: var(--rose); }
-  .reco-card.for-hospital .reco-label { background: rgba(232,160,32,0.1); color: var(--gold); }
-  .reco-card.for-research .reco-label { background: rgba(10,35,66,0.08); color: var(--navy); }
-  .reco-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
-  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .reco-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.87rem;
-    color: var(--text-mid);
-    line-height: 1.6;
-  }
-  .reco-list li::before {
-    content: '✓';
-    width: 20px; height: 20px;
-    background: linear-gradient(135deg, var(--teal), var(--teal-light));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.65rem;
-    color: white;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .reco-card.for-nurses .reco-list li::before { background: linear-gradient(135deg, var(--rose), #e05075); }
-  .reco-card.for-hospital .reco-list li::before { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
-  .reco-card.for-research .reco-list li::before { background: linear-gradient(135deg, var(--navy), #2c4a6e); }
-
-  /* ─── RESULTS ─── */
-  .results-section { background: white; }
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 60px;
-  }
-  .result-card {
-    border-radius: 20px;
-    padding: 32px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  .result-card:hover { transform: scale(1.03); }
-  .result-card.teal { background: linear-gradient(135deg, var(--teal), var(--teal-light)); color: white; }
-  .result-card.gold { background: linear-gradient(135deg, #d4890a, var(--gold-light)); color: white; }
-  .result-card.navy { background: linear-gradient(135deg, var(--navy), #1a4080); color: white; }
-  .result-card .r-num { font-size: 3rem; font-weight: 900; line-height: 1; display: block; }
-  .result-card .r-lbl { font-size: 0.85rem; opacity: 0.85; margin-top: 8px; line-height: 1.5; }
-  .result-card .r-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-
-  .results-table {
-    margin-top: 40px;
-    overflow-x: auto;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  }
-  thead tr { background: linear-gradient(135deg, var(--navy), #1a4080); }
-  thead th { padding: 16px 20px; color: white; font-size: 0.85rem; font-weight: 700; text-align: right; }
-  tbody tr { border-bottom: 1px solid #f0f5fa; transition: background 0.2s; }
-  tbody tr:hover { background: #f5fbfc; }
-  tbody tr:last-child { border-bottom: none; }
-  tbody td { padding: 14px 20px; font-size: 0.85rem; color: var(--text-mid); }
-  td .badge {
-    display: inline-block;
-    padding: 3px 12px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-  td .badge.high { background: rgba(192,57,90,0.1); color: var(--rose); }
-  td .badge.med { background: rgba(232,160,32,0.1); color: #b87c10; }
-  td .badge.low { background: rgba(26,127,142,0.1); color: var(--teal); }
-
-  /* ─── MESSAGE ─── */
-  .message-section {
-    background: linear-gradient(135deg, #fff8f0 0%, #fef3e8 100%);
-    padding: 80px 20px;
-  }
-  .message-box {
-    max-width: 760px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 28px;
-    padding: 60px 50px;
-    box-shadow: 0 20px 60px rgba(232,160,32,0.12);
-    border: 1px solid rgba(232,160,32,0.2);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .message-box::before {
-    content: '❤';
-    position: absolute;
-    font-size: 12rem;
-    opacity: 0.03;
-    top: -30px;
-    right: -30px;
-    line-height: 1;
-  }
-  .message-box .quote-mark {
-    font-size: 6rem;
-    color: var(--gold-light);
-    line-height: 0.5;
-    display: block;
-    margin-bottom: 24px;
-    opacity: 0.4;
-  }
-  .message-box p {
-    font-size: 1.2rem;
-    color: var(--text-mid);
-    line-height: 1.9;
-    font-weight: 500;
-  }
-  .message-box p strong { color: var(--navy); font-weight: 800; }
-  .message-box .sign {
-    margin-top: 32px;
-    font-size: 0.85rem;
-    color: var(--text-soft);
-    border-top: 1px solid #f0e8d8;
-    padding-top: 24px;
-  }
-
-  /* ─── QR SECTION ─── */
-  .qr-section {
-    background: white;
-    padding: 80px 20px;
-  }
-  .qr-box {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 60px;
-    align-items: center;
-    background: linear-gradient(135deg, var(--navy), #1a4080);
-    border-radius: 28px;
-    padding: 60px;
-    overflow: hidden;
-    position: relative;
-  }
-  .qr-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 100% 50%, rgba(26,127,142,0.2), transparent 60%);
-  }
-  .qr-content { position: relative; }
-  .qr-content .section-label { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
-  .qr-content h2 { font-size: 2rem; font-weight: 900; color: white; margin-bottom: 16px; }
-  .qr-content p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 24px; }
-  .qr-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .qr-features li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.75);
-  }
-  .qr-features li span.check {
-    width: 20px; height: 20px;
-    background: var(--teal);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  .qr-display {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .qr-frame {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  }
-  #qrcode canvas, #qrcode img { border-radius: 8px; }
-  .qr-caption {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.7rem;
-    text-align: center;
-    letter-spacing: 0.1em;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 0.82rem;
-    line-height: 1.8;
-  }
-  footer strong { color: rgba(255,255,255,0.9); }
-  footer .footer-logos {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    opacity: 0.5;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .fade-in-delay-1 { transition-delay: 0.1s; }
-  .fade-in-delay-2 { transition-delay: 0.2s; }
-  .fade-in-delay-3 { transition-delay: 0.3s; }
-  .fade-in-delay-4 { transition-delay: 0.4s; }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 16px 30px;
-    transition: all 0.3s;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav.scrolled {
-    background: rgba(10,35,66,0.95);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
-    padding: 12px 30px;
-  }
-  .nav-brand {
-    color: white;
-    font-size: 1rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .nav-brand .dot { width: 8px; height: 8px; background: var(--teal-light); border-radius: 50%; }
-  .nav-links {
-    display: flex;
-    gap: 24px;
-    list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 600;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--teal-light); }
-
-  @media (max-width: 768px) {
-    .why-grid, .reco-grid { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr; }
-    .qr-box { grid-template-columns: 1fr; text-align: center; padding: 40px 30px; }
-    .qr-display { align-items: center; }
-    .nav-links { display: none; }
-    .hero-stats { flex-direction: column; align-items: center; }
-  }
+@media(max-width:768px){
+  .why-grid,.who-grid,.nurse-grid,.reco-grid,.results-cards,.causes-grid,.videos-grid,.ai-grid,.compare-grid,.qr-box{grid-template-columns:1fr}
+  .qr-box{padding:36px 28px}
+  .qr-display{align-items:center}
+  .nav-links{display:none}
+  .who-mission{grid-template-columns:1fr}
+  .msg-box{padding:36px 28px}
+  .emergency-btn{bottom:20px;left:16px;font-size:.75rem;padding:11px 18px}
+}
 </style>
 </head>
 <body>
 
+<div id="progress"></div>
+
 <!-- NAV -->
 <nav id="navbar">
-  <div class="nav-brand">
-    <span class="dot"></span>
-    لستم وحدكم أبدًا
-  </div>
+  <div class="nav-brand"><span class="nav-dot"></span>لستم وحدكم أبدًا</div>
   <ul class="nav-links">
-    <li><a href="#why">لماذا هذا القلق؟</a></li>
-    <li><a href="#support">كيف ندعمكم</a></li>
-    <li><a href="#tips">نصائح عملية</a></li>
+    <li><a href="#who">من نحن</a></li>
+    <li><a href="#why">البحث</a></li>
     <li><a href="#results">النتائج</a></li>
-    <li><a href="#reco">التوصيات</a></li>
+    <li><a href="#causes">أسباب القلق</a></li>
+    <li><a href="#tips">نصائح</a></li>
+    <li><a href="#videos">فيديوهات</a></li>
+    <li><a href="#ai">مساعدة</a></li>
   </ul>
 </nav>
 
+<!-- EMERGENCY -->
+<button class="emergency-btn" onclick="document.getElementById('em').classList.add('open')">
+  🆘 أحتاج مساعدة الآن
+</button>
+<div class="emergency-modal" id="em">
+  <div class="em-box">
+    <h3>💙 نحن هنا معك</h3>
+    <p>إذا كنت تشعر بقلق شديد أو إرهاق الآن، اتبع هذه الخطوات الفورية:</p>
+    <ul class="em-steps">
+      <li><span class="step-n">1</span>توقف لحظة — خذ نفسًا عميقًا لمدة 4 ثوانٍ واحبسه 4 ثوانٍ ثم أطلقه ببطء</li>
+      <li><span class="step-n">2</span>أخبر الممرضة المسؤولة بما تشعر به — هم هنا لمساعدتك أنت أيضًا</li>
+      <li><span class="step-n">3</span>اطلب من أحد أفراد عائلتك أن يأتي ليبقى معك ولو لساعة</li>
+      <li><span class="step-n">4</span>تحدّث مع أحد مساعدي الذكاء الاصطناعي أسفل الصفحة إذا احتجت للكلام</li>
+    </ul>
+    <button class="em-close" onclick="document.getElementById('em').classList.remove('open')">حسنًا، شكرًا</button>
+  </div>
+</div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-orbs">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="inst-row fade-in">
+    <span class="inst-pill">جامعة جندوبة</span>
+    <span class="inst-pill">المعهد العالي لعلوم التمريض بالكاف</span>
+    <span class="inst-pill">المستشفى الجهوي — الكاف وجندوبة</span>
   </div>
-
-  <div class="institutions fade-in">
-    <span class="inst-badge">جامعة جندوبة</span>
-    <span class="inst-sep">|</span>
-    <span class="inst-badge">المعهد العالي لعلوم التمريض بالكاف</span>
-  </div>
-
-  <div class="hero-tagline fade-in fade-in-delay-1">لستم وحدكم أبدًا</div>
-
-  <h1 class="hero-title fade-in fade-in-delay-2">
-    <span>قلق الوالدين</span><br>في طب الأطفال
-  </h1>
-
-  <p class="hero-subtitle fade-in fade-in-delay-3">هدوءكم وصبركم... أجمل دواء لطفلكم</p>
-
-  <div class="hero-stats fade-in fade-in-delay-4">
-    <div class="stat-pill">
-      <span class="num">76.5%</span>
-      <span class="lbl">من الآباء يعانون قلقًا مرتفعًا</span>
+  <div class="hero-eyebrow">لستم وحدكم أبدًا</div>
+  <h1 class="hero-title"><span class="hl">قلق الوالدين</span><br>في طب الأطفال</h1>
+  <p class="hero-sub">هدوءكم وصبركم... أجمل دواء لطفلكم 💙</p>
+  <div class="hero-pills">
+    <div class="hero-pill">
+      <span class="p-num">102</span>
+      <span class="p-lbl">أم شاركت في بحثنا</span>
     </div>
-    <div class="stat-pill">
-      <span class="num">4</span>
-      <span class="lbl">أسباب رئيسية للقلق</span>
+    <div class="hero-pill">
+      <span class="p-num">76.5%</span>
+      <span class="p-lbl">يشعرون بقلق شديد — وهذا طبيعي</span>
     </div>
-    <div class="stat-pill">
-      <span class="num">5</span>
-      <span class="lbl">محاور دعم متخصص لكم</span>
+    <div class="hero-pill">
+      <span class="p-num">2</span>
+      <span class="p-lbl">مستشفى جهوي شملهما البحث</span>
     </div>
   </div>
+  <button class="hero-cta" onclick="document.getElementById('who').scrollIntoView({behavior:'smooth'})">
+    اكتشف المزيد ↓
+  </button>
+  <div class="scroll-hint"><span>مرِّر للأسفل</span><div style="width:6px;height:6px;background:rgba(255,255,255,.3);border-radius:50%;margin-top:4px"></div></div>
+</section>
 
-  <a href="#why" class="hero-cta fade-in">
-    اكتشف المزيد
-    <span class="arrow">↓</span>
-  </a>
-
-  <div class="scroll-hint">
-    <span>مرِّر للأسفل</span>
-    <div class="dot"></div>
+<!-- WHO WE ARE -->
+<section class="who-section" id="who">
+  <div class="container">
+    <div class="sec-label">من نحن؟</div>
+    <h2 class="sec-title">طلاب تمريض <span class="ac">يهتمون بكم</span></h2>
+    <p class="sec-desc">أجرينا هذا البحث لأننا نؤمن أن اهتمام الطاقم الطبي يجب أن يشمل الوالدين أيضًا، وليس الطفل فحسب.</p>
+    <div class="who-grid fade-in">
+      <div class="who-card d1">
+        <div class="who-avatar">👨‍⚕️</div>
+        <h3>براهيم خميسي</h3>
+        <div class="role">باحث رئيسي — تمريض السنة الثالثة</div>
+        <p>طالب في المعهد العالي لعلوم التمريض بالكاف، متحمس للبحث في دعم الأسرة خلال تجربة الاستشفاء.</p>
+      </div>
+      <div class="who-card d2">
+        <div class="who-avatar">👨‍⚕️</div>
+        <h3>فراس خلايفي</h3>
+        <div class="role">باحث مشارك — تمريض السنة الثالثة</div>
+        <p>طالب في المعهد العالي لعلوم التمريض بالكاف، شريك في البحث الميداني ومجمع البيانات.</p>
+      </div>
+    </div>
+    <div class="who-mission fade-in">
+      <div>
+        <h3>لماذا أجرينا هذا البحث؟</h3>
+        <p>لاحظنا خلال تدريبنا الميداني أن الآباء يعانون كثيرًا في صمت. أردنا أن نفهم هذا القلق بعمق حتى نتمكن كمنمرضين مستقبليين من تقديم دعم حقيقي للأسرة بأكملها.</p>
+      </div>
+      <div class="mission-badge">
+        <span class="m-num">2025</span>
+        <span class="m-lbl">سنة البحث</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- WHY SECTION -->
+<!-- WHY THIS RESEARCH -->
 <section class="why-section" id="why">
   <div class="container">
-    <div class="section-label">لماذا هذا القلق؟</div>
-    <h2 class="section-title">مشاعركم <span class="accent">طبيعية تمامًا</span></h2>
-    <p class="section-desc">دخول طفلكم المستشفى تجربة صعبة ومؤثرة. إليكم أبرز الأسباب التي تجعل القلق أمرًا مفهومًا ومتوقعًا.</p>
-
-    <div class="why-grid fade-in" style="margin-top:60px">
-      <div class="why-cards">
-        <div class="why-card">
-          <div class="icon">🔍</div>
+    <div class="sec-label">البحث ولماذا؟</div>
+    <h2 class="sec-title">ما الذي <span class="ac">دفعنا للبحث؟</span></h2>
+    <p class="sec-desc">رأينا بأعيننا أن الآباء يعيشون ضغطًا نفسيًا كبيرًا خلال إقامة أطفالهم بالمستشفى — لكن هذا الضغط نادرًا ما يُؤخذ بعين الاعتبار.</p>
+    <div class="why-grid">
+      <div class="why-cards fade-in">
+        <div class="why-card-item">
+          <div class="why-icon">🏥</div>
           <div>
-            <h4>التخوف من تطور حالة طفلكم</h4>
-            <p>الخوف على صحة طفلكم وعدم معرفة مآل المرض يولّد حالة من الترقب المستمر.</p>
+            <h4>بيئة غير مألوفة</h4>
+            <p>المستشفى ببيئته الجديدة وأصوات الأجهزة والإجراءات الطبية يخلق ضغطًا إضافيًا على الوالدين.</p>
           </div>
         </div>
-        <div class="why-card">
-          <div class="icon">⏰</div>
+        <div class="why-card-item">
+          <div class="why-icon">❓</div>
           <div>
-            <h4>الإقامة الطويلة في المستشفى</h4>
-            <p>الابتعاد عن البيئة المألوفة والانتظار المطوّل يُنهكان القوى ويُضعفان الطاقة.</p>
+            <h4>غموض المعلومات</h4>
+            <p>فقط 3 من كل 10 آباء في بحثنا قالوا أنهم تلقوا معلومات واضحة وكافية عن حالة طفلهم.</p>
           </div>
         </div>
-        <div class="why-card">
-          <div class="icon">💬</div>
+        <div class="why-card-item">
+          <div class="why-icon">🌙</div>
           <div>
-            <h4>الحاجة إلى معلومات أكثر وضوحًا</h4>
-            <p>الغموض حول التشخيص أو مسار العلاج يُغذّي القلق. المعلومة الواضحة تريح القلب.</p>
+            <h4>الحضور الدائم ليلاً ونهارًا</h4>
+            <p>93 من كل 100 أم في بحثنا بقيت جنب طفلها دون انقطاع — مما يُضاعف الإرهاق الجسدي والنفسي.</p>
           </div>
         </div>
-        <div class="why-card">
-          <div class="icon">🌙</div>
+        <div class="why-card-item">
+          <div class="why-icon">💔</div>
           <div>
-            <h4>التواجد المستمر ليلاً ونهارًا</h4>
-            <p>قلة النوم والسهر المتواصل يُضاعفان من الضغط النفسي والإرهاق العاطفي.</p>
+            <h4>لا دعم نفسي منظّم</h4>
+            <p>في مستشفياتنا الجهوية نادرًا ما يوجد برنامج دعم نفسي مخصص لمرافقي الأطفال.</p>
           </div>
         </div>
       </div>
+      <div class="big-stat fade-in d2">
+        <div class="bn">76.5<sup>%</sup></div>
+        <p>من كل 10 آباء في مستشفانا، <strong style="color:var(--gold-l)">8 تقريبًا</strong> يعانون من قلق شديد أثناء إقامة طفلهم</p>
+        <div class="note">📊 نتائج بحث ميداني — المستشفى الجهوي بالكاف وجندوبة<br>أداة البحث: مقياس STAI-Y (الأكثر استخدامًا عالميًا لقياس القلق)</div>
+      </div>
+    </div>
 
-      <div class="stat-showcase fade-in fade-in-delay-2">
-        <div class="big-num">76.5<sup>%</sup></div>
-        <p>من الوالدين يشعرون بقلق <strong>مرتفع</strong><br>أثناء إقامة طفلهم بالمستشفى</p>
-        <div class="note">
-          📊 نتائج مستخلصة من دراسة ميدانية أجريت بالمستشفى الجهوي بالكاف وجندوبة — قسم طب الأطفال العام
+    <!-- METHODOLOGY TIMELINE -->
+    <div style="margin-top:80px">
+      <div class="sec-label">كيف عملنا؟</div>
+      <h2 class="sec-title">مراحل <span class="ac">البحث</span></h2>
+      <div class="timeline fade-in" style="margin-top:40px;max-width:700px">
+        <div class="tl-item">
+          <div class="tl-dot">📚</div>
+          <div class="tl-content">
+            <h3>مراجعة الأدبيات العلمية</h3>
+            <p>راجعنا أكثر من 100 دراسة علمية دولية وتونسية حول قلق الوالدين في طب الأطفال.</p>
+            <span class="tl-badge">المرحلة الأولى</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">📋</div>
+          <div class="tl-content">
+            <h3>اخترنا مقياسًا علميًا موثوقًا</h3>
+            <p>استخدمنا مقياس STAI-Y — أداة معتمدة دوليًا لقياس مستوى القلق الآني، مُترجمة للعربية والفرنسية.</p>
+            <span class="tl-badge">المرحلة الثانية</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">🏥</div>
+          <div class="tl-content">
+            <h3>البحث الميداني</h3>
+            <p>التقينا بـ102 أم في مستشفى الكاف وجندوبة وملأنا معهن الاستبيان بشكل مباشر خلال سنة 2024–2025.</p>
+            <span class="tl-badge">المرحلة الثالثة</span>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot">📊</div>
+          <div class="tl-content">
+            <h3>تحليل النتائج ومقارنتها</h3>
+            <p>حللنا البيانات وقارنا نتائجنا مع دراسات من 14 دولة عالمية لفهم أين تقف تونس.</p>
+            <span class="tl-badge">المرحلة الرابعة</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEELINGS -->
-<section class="feelings-section" id="feelings">
+<!-- RESULTS -->
+<section class="results-section" id="results">
+  <div class="container" style="position:relative">
+    <div class="sec-label">النتائج</div>
+    <h2 class="sec-title">ماذا <span class="ac" style="color:var(--teal-l)">وجدنا؟</span></h2>
+    <p class="sec-desc">أرقام حقيقية من بيئتنا التونسية — مترجمة بلغة بسيطة لكم.</p>
+
+    <div class="results-cards fade-in">
+      <div class="r-card c1">
+        <span class="r-icon">😰</span>
+        <span class="r-num" data-target="76.5">0</span><span style="font-size:2rem;font-weight:900;color:#fff">%</span>
+        <span class="r-lbl">من كل 10 آباء، 8 تقريبًا يعانون قلقًا شديدًا</span>
+      </div>
+      <div class="r-card c2">
+        <span class="r-icon">📋</span>
+        <span class="r-num" data-target="30.4">0</span><span style="font-size:2rem;font-weight:900;color:#fff">%</span>
+        <span class="r-lbl">فقط هم من شعروا أن المعلومات التي تلقوها كانت كافية وواضحة</span>
+      </div>
+      <div class="r-card c3">
+        <span class="r-icon">🌙</span>
+        <span class="r-num" data-target="93.1">0</span><span style="font-size:2rem;font-weight:900;color:#fff">%</span>
+        <span class="r-lbl">بقوا جنب أطفالهم ليلاً ونهارًا دون انقطاع</span>
+      </div>
+    </div>
+
+    <!-- BAR CHARTS -->
+    <div class="bars-section fade-in">
+      <div class="bars-title">📈 القلق يزداد كلما طالت الإقامة</div>
+      <div class="bar-item">
+        <div class="bar-label"><span>أقل من 3 أيام</span><span>70.3%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-w="70.3"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>من 3 إلى 7 أيام</span><span>78.9%</span></div>
+        <div class="bar-track"><div class="bar-fill gold" data-w="78.9"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-label"><span>أكثر من 7 أيام</span><span>87.5%</span></div>
+        <div class="bar-track"><div class="bar-fill rose" data-w="87.5"></div></div>
+      </div>
+    </div>
+
+    <!-- WORLD COMPARE -->
+    <div style="margin-top:52px">
+      <div class="bars-title">🌍 نتائجنا مقارنةً بالعالم</div>
+      <div class="compare-grid fade-in">
+        <div class="cmp-card">
+          <span class="cmp-flag">🇹🇳</span>
+          <h4>تونس — بحثنا</h4>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill" data-w="76.5" style="background:linear-gradient(90deg,var(--rose),#e05075)"></div></div>
+          <span class="cmp-num">76.5%</span>
+        </div>
+        <div class="cmp-card">
+          <span class="cmp-flag">🌍</span>
+          <h4>دراسة دولية — 14 دولة</h4>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill" data-w="69" style="background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div></div>
+          <span class="cmp-num">69.0%</span>
+        </div>
+        <div class="cmp-card">
+          <span class="cmp-flag">🏥</span>
+          <h4>متوسط الطب العام عالميًا</h4>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill" data-w="45" style="background:linear-gradient(90deg,var(--gold),var(--gold-l))"></div></div>
+          <span class="cmp-num">~45%</span>
+        </div>
+        <div class="cmp-card">
+          <span class="cmp-flag">🚨</span>
+          <h4>حالات طوارئ وعناية مركزة</h4>
+          <div class="cmp-bar-track"><div class="cmp-bar-fill" data-w="80" style="background:linear-gradient(90deg,#7c3d9e,#a05dc0)"></div></div>
+          <span class="cmp-num">~80%</span>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:18px;font-size:.78rem;color:rgba(255,255,255,.4)">نتائجنا أعلى من المتوسط العالمي — مما يؤكد ضرورة الاهتمام بهذا الموضوع في سياقنا التونسي</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANXIETY TEST -->
+<section class="test-section" id="test">
   <div class="container">
-    <div class="section-label">ما تشعرون به</div>
-    <h2 class="section-title">من الطبيعي أن <span class="accent">تشعروا بـ...</span></h2>
-    <p class="section-desc">كل هذه المشاعر هي ردود فعل طبيعية لوالدَين يحبّان طفلهما ويخافان عليه.</p>
-
-    <div class="feelings-row fade-in" style="margin-top:50px">
-      <div class="feeling-tag"><span class="dot" style="background:#c0395a"></span> القلق والخوف</div>
-      <div class="feeling-tag"><span class="dot" style="background:#e8a020"></span> التوتر المستمر</div>
-      <div class="feeling-tag"><span class="dot" style="background:#1a7f8e"></span> الغضب والإرهاق النفسي</div>
-      <div class="feeling-tag"><span class="dot" style="background:#7c3d9e"></span> شعور بالعجز أحيانًا</div>
-      <div class="feeling-tag"><span class="dot" style="background:#2a7a4a"></span> الحزن والانكسار</div>
-      <div class="feeling-tag"><span class="dot" style="background:#0a7bbf"></span> الخوف من المجهول</div>
+    <div style="text-align:center;margin-bottom:0">
+      <div class="sec-label">اختبار سريع</div>
+      <h2 class="sec-title">كيف <span class="ac">حالك الآن؟</span></h2>
+      <p class="sec-desc" style="margin:0 auto;text-align:center">5 أسئلة بسيطة تساعدك تعرف مستوى قلقك وتحصل على نصيحة مخصصة لك</p>
     </div>
-
-    <div style="margin-top:50px; max-width:700px; margin-left:auto; margin-right:auto; text-align:center; background:white; border-radius:20px; padding:36px; box-shadow:0 8px 30px rgba(0,0,0,0.06); border: 1px solid var(--border);" class="fade-in">
-      <p style="font-size:1.1rem; color:var(--text-mid); line-height:1.9; font-weight:500;">
-        هذا يعني أن ما تشعرون به هو أمر <strong style="color:var(--teal)">طبيعي تمامًا</strong>،<br>وأنتم <strong style="color:var(--navy)">لستم وحدكم</strong> — نحن معكم لنرافقكم ونساعدكم.
-      </p>
+    <div class="test-box fade-in">
+      <div class="test-progress" id="testProgress"></div>
+      <div id="testContent"></div>
     </div>
   </div>
 </section>
 
-<!-- SUPPORT -->
+<!-- WHY ANXIETY CAUSES -->
+<section class="causes-section" id="causes">
+  <div class="container">
+    <div class="sec-label">لماذا هذا القلق؟</div>
+    <h2 class="sec-title">أسباب <span class="ac">مفهومة وطبيعية</span></h2>
+    <p class="sec-desc">كل هذه الأسباب وجدناها في بحثنا — وهي ردود فعل إنسانية طبيعية جداً لوالدَين يحبان طفلهما.</p>
+    <div class="causes-intro fade-in">
+      <p>من كل 10 آباء في مستشفانا، <strong>8 تقريبًا</strong> يشعرون بقلق شديد.<br>لكن السؤال المهم هو: <strong>لماذا؟</strong></p>
+    </div>
+    <div class="causes-grid fade-in">
+      <div class="cause-card t1">
+        <span class="cause-icon">😰</span>
+        <h3>الخوف من تطور الحالة</h3>
+        <p>عدم معرفة ما سيحدث غدًا هو أصعب شيء على الوالدَين — وهذا الخوف طبيعي تمامًا.</p>
+      </div>
+      <div class="cause-card t2">
+        <span class="cause-icon">💬</span>
+        <h3>نقص المعلومات الواضحة</h3>
+        <p>عندما لا يفهم الوالدان ما يجري، يملأ القلق الفراغ. المعلومة الواضحة تريح القلب.</p>
+      </div>
+      <div class="cause-card t3">
+        <span class="cause-icon">⏰</span>
+        <h3>الإقامة الطويلة</h3>
+        <p>كلما طالت الأيام في المستشفى، كلما تراكم التعب والضغط النفسي على الوالدَين.</p>
+      </div>
+      <div class="cause-card t4">
+        <span class="cause-icon">🌙</span>
+        <h3>السهر ليلاً ونهارًا</h3>
+        <p>قلة النوم والتواجد المستمر تستنزف الطاقة وتجعل كل شيء يبدو أصعب.</p>
+      </div>
+      <div class="cause-card t5">
+        <span class="cause-icon">💔</span>
+        <h3>الشعور بالعجز</h3>
+        <p>رؤية طفلك يتألم وأنت لا تستطيع فعل شيء — هذا من أصعب المشاعر على قلب الوالدَين.</p>
+      </div>
+      <div class="cause-card t6">
+        <span class="cause-icon">🏥</span>
+        <h3>بيئة المستشفى</h3>
+        <p>أصوات الأجهزة والأجواء الطبية غير المألوفة تُشعل القلق حتى في أهدأ اللحظات.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT TRANSITION + NURSE ROLE -->
 <section class="support-section" id="support">
   <div class="container">
-    <div class="section-label">كيف ندعمكم</div>
-    <h2 class="section-title">نحن ندعمكم <span class="accent">في كل خطوة</span></h2>
-    <p class="section-desc">فريق التمريض يعمل معكم جنبًا إلى جنب لتخفيف الضغط وضمان سلامة طفلكم.</p>
-
-    <div class="steps-grid">
-      <div class="step-card fade-in fade-in-delay-1">
-        <div class="step-num">👥</div>
-        <h3>عمل جماعي</h3>
-        <p>نتقدم معًا ونتعاون من أجل سلامة طفلك في بيئة رعاية متكاملة.</p>
+    <div class="support-transition fade-in">
+      <span class="st-icon">💙</span>
+      <h2>لا تقلقوا... نحن هنا معكم</h2>
+      <p>الآن بعد ما عرفنا الأسباب، إليكم كيف يمكننا كفريق تمريض أن ندعمكم في كل خطوة خلال هذه الرحلة الصعبة.</p>
+    </div>
+    <div class="support-grid fade-in">
+      <div class="support-card d1">
+        <div class="s-icon">👂</div>
+        <h3>نستمع إليكم</h3>
+        <p>نوفر وقتًا للاستماع لكل مخاوفكم دون استعجال — مخاوفكم مهمة لنا.</p>
       </div>
-      <div class="step-card fade-in fade-in-delay-2">
-        <div class="step-num">💡</div>
-        <h3>نصائح عملية</h3>
-        <p>نساعدكم على التعامل مع القلق وتخفيف التوتر بأساليب مجرّبة يوميًا.</p>
+      <div class="support-card d2">
+        <div class="s-icon">💡</div>
+        <h3>نوضح لكم كل شيء</h3>
+        <p>نشرح لكم بلغة بسيطة ما يجري لطفلكم وما هي الخطوات القادمة.</p>
       </div>
-      <div class="step-card fade-in fade-in-delay-3">
-        <div class="step-num">💙</div>
-        <h3>مشاركتكم في رعاية طفلكم</h3>
-        <p>أنتم العنصر الأساسي والداعم الأول في راحة طفلكم وشفائه.</p>
+      <div class="support-card d3">
+        <div class="s-icon">💙</div>
+        <h3>نشرككم في الرعاية</h3>
+        <p>أنتم الشريك الأساسي — نساعدكم على المشاركة في رعاية طفلكم بطرق بسيطة.</p>
       </div>
-      <div class="step-card fade-in fade-in-delay-4">
-        <div class="step-num">👂</div>
-        <h3>استماع باهتمام</h3>
-        <p>نوفّر الوقت اللازم للاستماع لمخاوفكم كلها دون استعجال.</p>
+      <div class="support-card d4">
+        <div class="s-icon">🔍</div>
+        <h3>نراقب راحتكم أنتم</h3>
+        <p>نهتم بكم أنتم أيضًا — ليس فقط بطفلكم. راحتكم النفسية مهمة لنا.</p>
       </div>
-      <div class="step-card fade-in">
-        <div class="step-num">📋</div>
-        <h3>توضيحات منظّمة</h3>
-        <p>نحرص على إعلامكم بكل المستجدات بوضوح وبشكل منتظم.</p>
+      <div class="support-card">
+        <div class="s-icon">🤝</div>
+        <h3>نعمل معكم كفريق</h3>
+        <p>الهدف مشترك — شفاء طفلكم والحفاظ على صحتكم النفسية معًا.</p>
       </div>
     </div>
   </div>
@@ -970,196 +717,227 @@
 <!-- TIPS -->
 <section class="tips-section" id="tips">
   <div class="container" style="position:relative">
-    <div class="section-label">نصائح عملية</div>
-    <h2 class="section-title">أشياء بسيطة تساعدكم <span class="accent">على الشعور بتحسن</span></h2>
-    <p class="section-desc">هذه الأدوات البسيطة ستساعدكم على إدارة القلق والحفاظ على طاقتكم لأجل طفلكم.</p>
-
+    <div class="sec-label">نصائح عملية</div>
+    <h2 class="sec-title">أشياء بسيطة <span class="ac" style="color:var(--teal-l)">تساعدكم الآن</span></h2>
+    <p class="sec-desc">هذه النصائح مجرّبة — جربوها في الغرفة، في الممر، أو حتى وأنتم جالسون جنب طفلكم.</p>
     <div class="tips-grid">
-      <div class="tip-card fade-in fade-in-delay-1">
-        <span class="tip-icon">❤️</span>
-        <h3>ذكّروا أنفسكم دائمًا</h3>
-        <p>حبكم وهدوءكم هما الدواء الحقيقي والأساسي لشفاء طفلكم.</p>
+      <div class="tip-card fade-in d1">
+        <span class="t-icon">🌬️</span>
+        <h3>التنفس العميق</h3>
+        <p>استنشق الهواء 4 ثوانٍ، احبسه 4 ثوانٍ، أطلقه ببطء 6 ثوانٍ. كرر 5 مرات. يهدّئ الجهاز العصبي فورًا.</p>
+        <span class="t-badge">⏱ 2 دقيقة</span>
       </div>
-      <div class="tip-card fade-in fade-in-delay-2">
-        <span class="tip-icon">🧘</span>
-        <h3>خذوا فترات راحة</h3>
-        <p>حتى لو كانت قصيرة — دقائق من الهدوء تعيد شحن طاقتكم.</p>
+      <div class="tip-card fade-in d2">
+        <span class="t-icon">☕</span>
+        <h3>خذ استراحة قصيرة</h3>
+        <p>اخرج من الغرفة 10 دقائق. شرب كوب ماء، مشي قصير في الممر — جسمك يحتاج هذا.</p>
+        <span class="t-badge">⏱ 10 دقائق</span>
       </div>
-      <div class="tip-card fade-in fade-in-delay-3">
-        <span class="tip-icon">💬</span>
-        <h3>عبّروا عن مخاوفكم</h3>
-        <p>الفريق الطبي كله هنا للاستماع إليكم في كل وقت وفي كل سؤال.</p>
+      <div class="tip-card fade-in d3">
+        <span class="t-icon">💬</span>
+        <h3>تحدّث عن مخاوفك</h3>
+        <p>لا تحتفظ بالقلق بمفردك. أخبر الممرضة أو فرد من العائلة بما تشعر به — هذا يخفف الضغط كثيرًا.</p>
+        <span class="t-badge">مهم جداً</span>
       </div>
-      <div class="tip-card fade-in fade-in-delay-4">
-        <span class="tip-icon">🤝</span>
-        <h3>تقبّلوا المساعدة</h3>
-        <p>من الأصدقاء والعائلة — دون شعور بالذنب. القوة في طلب الدعم.</p>
+      <div class="tip-card fade-in d4">
+        <span class="t-icon">🤝</span>
+        <h3>اقبل المساعدة</h3>
+        <p>اسمح لأحد أفراد العائلة أن يحل محلك لبعض الوقت — طلب المساعدة قوة وليس ضعفًا.</p>
+        <span class="t-badge">ضروري</span>
       </div>
       <div class="tip-card fade-in">
-        <span class="tip-icon">🌬️</span>
-        <h3>تنفسوا بعمق</h3>
-        <p>استنشقوا الهواء لمدة 4 ثوانٍ، ثم أخرجوه ببطء لمدة 6 ثوانٍ.</p>
+        <span class="t-icon">❤️</span>
+        <h3>ذكّر نفسك دائمًا</h3>
+        <p>حبك وحضورك هما أهم دواء لطفلك. الأطباء يعالجون الجسد — أنت تعالج الروح.</p>
+        <span class="t-badge">الأهم</span>
+      </div>
+      <div class="tip-card fade-in">
+        <span class="t-icon">😴</span>
+        <h3>النوم ولو قليلاً</h3>
+        <p>حتى ساعتان من النوم تعيدان طاقتك. اتفق مع أحد أفراد العائلة على نظام التناوب ليلاً.</p>
+        <span class="t-badge">⏱ أولوية</span>
+      </div>
+      <div class="tip-card fade-in">
+        <span class="t-icon">🙏</span>
+        <h3>لا تحمّل نفسك الذنب</h3>
+        <p>مرض طفلك ليس خطأك. التفكير بهذه الطريقة يزيد القلق دون فائدة — أنت تبذل كل ما بوسعك.</p>
+        <span class="t-badge">نفسي مهم</span>
+      </div>
+      <div class="tip-card fade-in">
+        <span class="t-icon">📱</span>
+        <h3>ابق على تواصل</h3>
+        <p>تحدث مع أصدقائك وعائلتك ولو بمكالمة قصيرة — الشعور بالوحدة يضاعف القلق.</p>
+        <span class="t-badge">تواصل اجتماعي</span>
+      </div>
+      <div class="tip-card fade-in">
+        <span class="t-icon">🎵</span>
+        <h3>موسيقى هادئة أو قرآن</h3>
+        <p>استمع لشيء يريحك بسماعة أذن — حتى 10 دقائق من الهدوء الصوتي يغيّر المزاج كثيرًا.</p>
+        <span class="t-badge">⏱ 10 دقائق</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RESULTS -->
-<section class="results-section" id="results">
+<!-- NURSE ROLE -->
+<section class="nurse-section" id="nurse">
   <div class="container">
-    <div class="section-label">نتائج الدراسة</div>
-    <h2 class="section-title">ماذا <span class="accent">كشفت الأرقام؟</span></h2>
-    <p class="section-desc">دراسة ميدانية أُجريت على عيّنة من والدي الأطفال المقيمين في أقسام طب الأطفال.</p>
-
-    <div class="results-grid fade-in">
-      <div class="result-card teal">
-        <span class="r-icon">📊</span>
-        <span class="r-num">76.5%</span>
-        <span class="r-lbl">من الآباء يعانون مستوى قلق مرتفعًا</span>
+    <div class="sec-label">دور الممرضين</div>
+    <h2 class="sec-title">كيف <span class="ac">نكون بجانبكم؟</span></h2>
+    <p class="sec-desc">دورنا لا يقتصر على رعاية طفلكم — نحن هنا لكم أنتم أيضًا.</p>
+    <div class="nurse-grid fade-in">
+      <div class="nurse-left">
+        <h3>ما الذي يفعله الممرض لدعمكم بالضبط؟</h3>
+        <div class="nurse-roles">
+          <div class="nr-item">
+            <div class="nr-dot" style="background:var(--teal)"></div>
+            <p>يشرح لكم بلغة بسيطة كل إجراء طبي قبل تطبيقه حتى لا تُفاجأوا</p>
+          </div>
+          <div class="nr-item">
+            <div class="nr-dot" style="background:var(--gold)"></div>
+            <p>يلاحظ علامات القلق عليكم ويبادر بالحديث إليكم قبل أن تطلبوا</p>
+          </div>
+          <div class="nr-item">
+            <div class="nr-dot" style="background:var(--rose)"></div>
+            <p>يعلّمكم تقنيات بسيطة للاسترخاء يمكنكم تطبيقها فورًا في الغرفة</p>
+          </div>
+          <div class="nr-item">
+            <div class="nr-dot" style="background:var(--green)"></div>
+            <p>يشجعكم على المشاركة في رعاية طفلكم بطرق تناسب قدراتكم</p>
+          </div>
+          <div class="nr-item">
+            <div class="nr-dot" style="background:#7c3d9e"></div>
+            <p>يكون حلقة الوصل بينكم وبين الطاقم الطبي وينقل تساؤلاتكم</p>
+          </div>
+          <div class="nr-item">
+            <div class="nr-dot" style="background:var(--teal-l)"></div>
+            <p>يحرص على إعطائكم تحديثات منتظمة عن حالة طفلكم بوضوح ودون تعقيد</p>
+          </div>
+        </div>
       </div>
-      <div class="result-card gold">
-        <span class="r-icon">👩‍⚕️</span>
-        <span class="r-num">82%</span>
-        <span class="r-lbl">من الآباء يرغبون في مزيد من الدعم من فريق التمريض</span>
+      <div class="nurse-quote">
+        <span class="nq-mark">"</span>
+        <p>عندما تهتمون بأنفسكم، فأنتم تساعدون طفلكم على الشفاء بطريقة أجمل وأسرع. صحتكم النفسية جزء لا يتجزأ من علاج طفلكم.</p>
+        <div class="nq-sign">فريق التمريض — قسم طب الأطفال 💙<br>المستشفى الجهوي بالكاف وجندوبة</div>
       </div>
-      <div class="result-card navy">
-        <span class="r-icon">📅</span>
-        <span class="r-num">+3</span>
-        <span class="r-lbl">أيام متوسط مدة الإقامة عند ارتفاع مستوى القلق</span>
-      </div>
-    </div>
-
-    <div class="results-table fade-in" style="margin-top:40px">
-      <table>
-        <thead>
-          <tr>
-            <th>عامل القلق</th>
-            <th>النسبة</th>
-            <th>المستوى</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>الخوف من تطور حالة الطفل</td>
-            <td><strong>76.5%</strong></td>
-            <td><span class="badge high">مرتفع جداً</span></td>
-          </tr>
-          <tr>
-            <td>غياب معلومات كافية حول التشخيص</td>
-            <td><strong>68.3%</strong></td>
-            <td><span class="badge high">مرتفع</span></td>
-          </tr>
-          <tr>
-            <td>الإرهاق الناتج عن السهر الليلي</td>
-            <td><strong>61.7%</strong></td>
-            <td><span class="badge med">متوسط–مرتفع</span></td>
-          </tr>
-          <tr>
-            <td>التوتر من الإجراءات الطبية</td>
-            <td><strong>54.2%</strong></td>
-            <td><span class="badge med">متوسط</span></td>
-          </tr>
-          <tr>
-            <td>الشعور بالعزلة في المستشفى</td>
-            <td><strong>43.1%</strong></td>
-            <td><span class="badge low">متوسط</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </section>
 
-<!-- RECOMMENDATIONS -->
-<section class="reco-section" id="reco">
+<!-- VIDEOS -->
+<section class="videos-section" id="videos">
   <div class="container">
-    <div class="section-label">التوصيات</div>
-    <h2 class="section-title">ماذا <span class="accent">نوصي؟</span></h2>
-    <p class="section-desc">بناءً على نتائج الدراسة، وُضعت هذه التوصيات لتحسين تجربة الآباء والأطفال في الرعاية الصحية.</p>
+    <div class="sec-label">فيديوهات مفيدة</div>
+    <h2 class="sec-title">تعلّم <span class="ac">الاسترخاء</span> في دقائق</h2>
+    <p class="sec-desc">فيديوهات قصيرة يمكنك مشاهدتها الآن من هاتفك — بسماعة أذن جنب طفلك.</p>
+    <div class="videos-grid fade-in">
+      <div class="vid-card" onclick="window.open('https://www.youtube.com/results?search_query=تنفس+عميق+للاسترخاء','_blank')">
+        <div class="vid-thumb v1">
+          <div class="vid-play">▶</div>
+          <span class="vid-duration">5–10 دقائق</span>
+        </div>
+        <div class="vid-body">
+          <h3>تمرين التنفس العميق</h3>
+          <p>تقنية بسيطة تهدّئ الجهاز العصبي وتخفف التوتر فورًا — يمكنك تطبيقها في أي مكان.</p>
+          <span class="vid-tag">🧘 استرخاء فوري</span>
+        </div>
+      </div>
+      <div class="vid-card" onclick="window.open('https://www.youtube.com/results?search_query=تأمل+قصير+للمبتدئين','_blank')">
+        <div class="vid-thumb v2">
+          <div class="vid-play">▶</div>
+          <span class="vid-duration">10–15 دقيقة</span>
+        </div>
+        <div class="vid-body">
+          <h3>تأمل موجَّه قصير</h3>
+          <p>جلسة تأمل بسيطة تساعدك على الهدوء وإعادة الطاقة — مناسبة للمبتدئين تمامًا.</p>
+          <span class="vid-tag">🌿 إعادة طاقة</span>
+        </div>
+      </div>
+      <div class="vid-card" onclick="window.open('https://www.youtube.com/results?search_query=تمارين+إطالة+بسيطة+للكرسي','_blank')">
+        <div class="vid-thumb v3">
+          <div class="vid-play">▶</div>
+          <span class="vid-duration">5–8 دقائق</span>
+        </div>
+        <div class="vid-body">
+          <h3>تمدد خفيف من كرسيك</h3>
+          <p>تمارين بسيطة للكتفين والرقبة والظهر — مثالية لمن يجلس طويلاً جنب سرير الطفل.</p>
+          <span class="vid-tag">💪 راحة جسدية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="reco-grid fade-in">
-      <div class="reco-card for-parents">
-        <span class="reco-label">للوالدين</span>
-        <h3>ما يمكنكم فعله</h3>
-        <ul class="reco-list">
-          <li>لا تترددوا في طرح أسئلتكم على الفريق الطبي في أي وقت</li>
-          <li>اطلبوا شرحًا واضحًا لكل إجراء يُجرى لطفلكم</li>
-          <li>خصّصوا وقتًا للراحة حتى تتمكنوا من الاهتمام بطفلكم</li>
-          <li>استعينوا بأفراد العائلة لمشاركة الأعباء</li>
-        </ul>
-      </div>
-      <div class="reco-card for-nurses">
-        <span class="reco-label">لفريق التمريض</span>
-        <h3>دور الممرض في دعم الأسرة</h3>
-        <ul class="reco-list">
-          <li>إعطاء الوالدين وقتًا كافيًا للاستماع والإجابة</li>
-          <li>الشرح الواضح والمبسّط لكل إجراء طبي</li>
-          <li>تضمين الوالدين في خطة رعاية الطفل</li>
-          <li>التعرّف على مستوى القلق وتقديم الدعم المناسب</li>
-        </ul>
-      </div>
-      <div class="reco-card for-hospital">
-        <span class="reco-label">للمؤسسة الصحية</span>
-        <h3>على مستوى المستشفى</h3>
-        <ul class="reco-list">
-          <li>توفير بروتوكول استقبال مخصص لأسر الأطفال</li>
-          <li>تنظيم ورش دعم نفسي للآباء داخل المستشفى</li>
-          <li>توزيع نشرات تثقيفية حول إدارة القلق</li>
-          <li>تخصيص أماكن راحة لمرافقي الأطفال داخل المستشفى</li>
-        </ul>
-      </div>
-      <div class="reco-card for-research">
-        <span class="reco-label">للبحث العلمي</span>
-        <h3>للدراسات المستقبلية</h3>
-        <ul class="reco-list">
-          <li>إجراء دراسات مقارنة بين مختلف المستشفيات والمناطق</li>
-          <li>قياس أثر التدخل التمريضي على مستوى قلق الوالدين</li>
-          <li>تطوير مقاييس موحدة مخصصة للسياق التونسي</li>
-          <li>دراسة علاقة قلق الوالدين بمدة إقامة الطفل</li>
-        </ul>
-      </div>
+<!-- AI SECTION -->
+<section class="ai-section" id="ai">
+  <div class="container">
+    <div class="ai-intro">
+      <div class="sec-label">تحدّث مع ذكاء اصطناعي</div>
+      <h2 class="sec-title">تحتاج شخصًا <span class="ac">يستمع إليك؟</span></h2>
+      <p class="sec-desc" style="text-align:center;margin:0 auto">هذه المساعدات متاحة 24 ساعة — يمكنك أن تتحدث إليها بكل حرية وتحصل على دعم فوري.</p>
+    </div>
+    <div class="ai-grid fade-in">
+      <a class="ai-card" href="https://chatgpt.com" target="_blank" rel="noopener">
+        <div class="ai-logo gpt">G</div>
+        <h3>ChatGPT</h3>
+        <p>يمكنك التحدث معه بالعربية عن مخاوفك ويعطيك نصائح ومعلومات طبية مبسطة.</p>
+        <span class="ai-btn">فتح ChatGPT ↗</span>
+      </a>
+      <a class="ai-card" href="https://gemini.google.com" target="_blank" rel="noopener">
+        <div class="ai-logo gem">G</div>
+        <h3>Gemini</h3>
+        <p>مساعد Google الذكي — يجيب على أسئلتك الطبية ويساعدك في فهم حالة طفلك.</p>
+        <span class="ai-btn">فتح Gemini ↗</span>
+      </a>
+      <a class="ai-card" href="https://claude.ai" target="_blank" rel="noopener">
+        <div class="ai-logo cld">C</div>
+        <h3>Claude</h3>
+        <p>مساعد Anthropic — معروف بردوده الإنسانية والدافئة — مثالي للحديث عن القلق والمشاعر.</p>
+        <span class="ai-btn">فتح Claude ↗</span>
+      </a>
+    </div>
+    <div class="ai-note fade-in">
+      ⚠️ هذه المساعدات مكمّلة وليست بديلاً عن الفريق الطبي — لأي سؤال طبي عاجل تحدث دائمًا مع الممرضة أو الطبيب المسؤول.
     </div>
   </div>
 </section>
 
 <!-- MESSAGE -->
-<section class="message-section" id="message">
+<section class="msg-section" id="message">
   <div class="container">
-    <div class="message-box fade-in">
-      <span class="quote-mark">"</span>
+    <div class="msg-box fade-in">
+      <span class="msg-mark">"</span>
       <p>
-        صحتكم النفسية وصبركم هما <strong>القوة الحقيقية لصغيركم</strong>.<br>
-        حتى في أصعب اللحظات، دوركم كوالدين لا يُعوَّض.<br>
-        نحن نؤمن بقوتكم وسنكون بجانبكم لتجاوز هذه المرحلة معًا.
+        صبركم وحضوركم هما <strong>أغلى هدية تقدمونها لطفلكم</strong>.<br>
+        في أصعب اللحظات، دوركم كوالدَين لا يعوّضه شيء.<br>
+        نحن نؤمن بقوتكم — وسنكون بجانبكم في كل خطوة <strong>حتى يشفى طفلكم</strong> ويعود البيت يبتسم مجدداً.
       </p>
-      <div class="sign">
-        رسالة من القلب — فريق طب الأطفال 💙<br>
-        <strong>المستشفى الجهوي بالكاف وجندوبة</strong>
+      <div class="msg-sign">
+        رسالة من القلب — براهيم خميسي وفراس خلايفي 💙<br>
+        <strong>طلاب التمريض — المعهد العالي لعلوم التمريض بالكاف</strong>
       </div>
     </div>
   </div>
 </section>
 
-<!-- QR CODE -->
+<!-- QR -->
 <section class="qr-section" id="qr">
   <div class="container">
     <div class="qr-box fade-in">
       <div class="qr-content">
-        <div class="section-label">امسح رمز QR</div>
+        <div class="sec-label">امسح رمز QR</div>
         <h2>للتعرّف على طرق التخفيف من القلق ودعم طفلكم</h2>
-        <p>امسح الرمز بكاميرا هاتفك للوصول الفوري إلى جميع المعلومات وأحدث النصائح للوالدين.</p>
-        <ul class="qr-features">
-          <li><span class="check">✓</span> نصائح سريعة لإدارة القلق</li>
-          <li><span class="check">✓</span> تقنيات فعّالة لتهدئة الجهاز العصبي</li>
-          <li><span class="check">✓</span> دعم معنوي وروابط مفيدة</li>
-          <li><span class="check">✓</span> معلومات حول الرعاية التمريضية للأطفال</li>
+        <p>امسح الرمز بكاميرا هاتفك للوصول الفوري لكل هذه المعلومات والنصائح في أي وقت.</p>
+        <ul class="qr-feats">
+          <li><span class="ck">✓</span>نصائح سريعة لإدارة القلق</li>
+          <li><span class="ck">✓</span>اختبار تفاعلي لمعرفة مستوى قلقك</li>
+          <li><span class="ck">✓</span>فيديوهات الاسترخاء</li>
+          <li><span class="ck">✓</span>مساعدة فورية من ذكاء اصطناعي</li>
         </ul>
       </div>
       <div class="qr-display">
-        <div class="qr-frame">
-          <div id="qrcode"></div>
-        </div>
-        <div class="qr-caption">امسح بكاميرا هاتفك</div>
+        <div class="qr-frame"><div id="qrcode"></div></div>
+        <div class="qr-cap">امسح بكاميرا هاتفك</div>
       </div>
     </div>
   </div>
@@ -1167,54 +945,145 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logos">
+  <div class="footer-top">
     <span>جامعة جندوبة</span>
     <span>|</span>
     <span>المعهد العالي لعلوم التمريض بالكاف</span>
     <span>|</span>
-    <span>المستشفى الجهوي بالكاف وجندوبة</span>
+    <span>المستشفى الجهوي — الكاف وجندوبة</span>
   </div>
   <p>
-    <strong>إعداد:</strong> براهيم خميسي — طالب في العلوم التمريضية<br>
-    تحت إشراف الأساتذة المختصين — قسم طب الأطفال العام<br>
-    <strong>السنة الدراسية 2024–2025</strong>
+    <strong>إعداد:</strong> براهيم خميسي و فراس خلايفي — طلاب في العلوم التمريضية<br>
+    <strong>تحت إشراف:</strong> الدكتورة نزيهة القلمامي<br>
+    <strong>المؤطرة:</strong> خولة تلهاقي<br>
+    <strong>السنة الدراسية:</strong> 2024–2025
   </p>
-  <p style="margin-top:16px; opacity:0.4; font-size:0.75rem;">هذا الموقع جزء من عمل بحثي أكاديمي — TFE في علوم التمريض</p>
+  <div class="footer-academic">
+    هذا الموقع جزء من عمل بحثي أكاديمي (TFE) — قسم طب الأطفال العام<br>
+    تخصص: علوم التمريض | المستشفى الجهوي بالكاف وجندوبة
+  </div>
 </footer>
 
 <script>
-// QR CODE
-window.addEventListener('load', function() {
-  new QRCode(document.getElementById("qrcode"), {
-    text: "https://khmissiibrahim2004-del.github.io/qalaq-waliden/",
-    width: 180,
-    height: 180,
-    colorDark: "#0a2342",
-    colorLight: "#ffffff",
+// ── PROGRESS BAR ──
+const prog = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  prog.style.transform = `scaleX(${p})`;
+});
+
+// ── NAV ──
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── PARTICLES ──
+const pc = document.getElementById('particles');
+for (let i = 0; i < 18; i++) {
+  const s = document.createElement('span');
+  const size = Math.random() * 120 + 40;
+  s.style.cssText = `width:${size}px;height:${size}px;right:${Math.random()*100}%;background:${['#1a7f8e','#e8a020','#c0395a'][Math.floor(Math.random()*3)]};animation-duration:${Math.random()*20+15}s;animation-delay:${Math.random()*10}s;top:${Math.random()*100}%`;
+  pc.appendChild(s);
+}
+
+// ── FADE IN ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// ── COUNTER ANIMATION ──
+function animateCount(el, target, isFloat) {
+  let start = 0;
+  const step = target / 60;
+  const timer = setInterval(() => {
+    start += step;
+    if (start >= target) { start = target; clearInterval(timer); }
+    el.textContent = isFloat ? start.toFixed(1) : Math.floor(start);
+  }, 20);
+}
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-target]').forEach(el => {
+        const t = parseFloat(el.getAttribute('data-target'));
+        animateCount(el, t, t % 1 !== 0);
+      });
+      countObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.results-cards').forEach(el => countObs.observe(el));
+
+// ── BAR ANIMATION ──
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('[data-w]').forEach(b => {
+        setTimeout(() => { b.style.width = b.getAttribute('data-w') + '%'; }, 200);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.bars-section,.compare-grid').forEach(el => barObs.observe(el));
+
+// ── QR CODE ──
+window.addEventListener('load', () => {
+  new QRCode(document.getElementById('qrcode'), {
+    text: 'https://khmissiibrahim2004-del.github.io/qalaq-waliden/',
+    width: 180, height: 180,
+    colorDark: '#0a2342', colorLight: '#ffffff',
     correctLevel: QRCode.CorrectLevel.H
   });
 });
 
-// NAVBAR scroll
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
+// ── ANXIETY TEST ──
+const questions = [
+  { q: 'كيف تصف مستوى قلقك الآن بشكل عام؟', opts: ['هادئ تمامًا أو قلق بسيط','قلق متوسط — أفكر كثيرًا','قلق شديد — صعب التحكم فيه','لا أستطيع وصف ما أشعر به'] },
+  { q: 'هل تجد صعوبة في النوم بسبب التفكير بحالة طفلك؟', opts: ['لا، أنام بشكل مقبول','أحيانًا أستيقظ ليلاً','نادرًا ما أنام جيدًا','لم أنم بشكل طبيعي منذ دخولنا المستشفى'] },
+  { q: 'هل تشعر أنك وحيد في هذه التجربة؟', opts: ['لا، أشعر بدعم عائلتي','أحيانًا أشعر بالوحدة','كثيرًا ما أشعر أن لا أحد يفهمني','نعم، أشعر بوحدة شديدة'] },
+  { q: 'كيف تتعامل مع الضغط الذي تشعر به؟', opts: ['أتحدث مع شخص قريب وأرتاح','أحاول التحكم لكنه صعب أحيانًا','أحتفظ بكل شيء لنفسي','لا أعرف كيف أتعامل معه'] },
+  { q: 'ماذا تحتاج أكثر الآن؟', opts: ['معلومات أوضح عن حالة طفلي','شخص يستمع إليّ','وقت للراحة والنوم','دعم الجميع معًا'] }
+];
+let cur = 0, scores = [];
 
-// FADE IN on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
+function buildTest() {
+  const prog = document.getElementById('testProgress');
+  prog.innerHTML = questions.map((_, i) =>
+    `<span class="${i < cur ? 'done' : i === cur ? 'active' : ''}"></span>`
+  ).join('');
+  const content = document.getElementById('testContent');
+  if (cur >= questions.length) {
+    const total = scores.reduce((a, b) => a + b, 0);
+    let emoji, title, text, tip;
+    if (total <= 5) {
+      emoji='😊'; title='أنت بخير نسبيًا'; text='تمكنك من إدارة مشاعرك جيدًا رغم الظروف الصعبة. استمر في ما تفعله وتذكر أن طلب المساعدة قوة.';
+      tip='تابع نصائحنا للحفاظ على هدوئك — خاصة تمرين التنفس العميق.';
+    } else if (total <= 10) {
+      emoji='💛'; title='قلق طبيعي ومفهوم'; text='ما تشعر به طبيعي تمامًا — معظم الآباء في وضعك يشعرون بنفس الشيء. لست وحدك في هذا.';
+      tip='جرّب تقنية التنفس الموجود في النصائح، وتحدث مع الممرضة عن مخاوفك.';
+    } else {
+      emoji='💙'; title='تحتاج دعمًا إضافيًا'; text='أنت تمر بضغط نفسي كبير — هذا يستحق الاهتمام. لا تحتفظ بكل هذا لنفسك.';
+      tip='تحدث مع الممرضة المسؤولة اليوم، واستخدم زر "أحتاج مساعدة الآن" في الأسفل.';
+    }
+    content.innerHTML = `<div class="test-result"><span class="res-emoji">${emoji}</span><h3>${title}</h3><p>${text}</p><div class="res-tip">💡 ${tip}</div><button class="btn-retry" onclick="cur=0;scores=[];buildTest()">↺ أعد الاختبار</button></div>`;
+    return;
+  }
+  const q = questions[cur];
+  content.innerHTML = `<p class="test-q">${q.q}</p><div class="test-options">${q.opts.map((o, i) => `<button class="test-opt" onclick="selectOpt(this,${i})">${o}</button>`).join('')}</div><div style="text-align:center"><button class="btn-next" style="opacity:.4;pointer-events:none" id="btnNext" onclick="nextQ()">التالي ←</button></div>`;
+}
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Hero instant visibility
-document.querySelectorAll('.hero .fade-in').forEach(el => {
-  setTimeout(() => el.classList.add('visible'), 200);
-});
+function selectOpt(el, i) {
+  document.querySelectorAll('.test-opt').forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  scores[cur] = i;
+  const btn = document.getElementById('btnNext');
+  btn.style.opacity = '1'; btn.style.pointerEvents = 'auto';
+}
+function nextQ() { cur++; buildTest(); }
+buildTest();
 </script>
 </body>
 </html>
