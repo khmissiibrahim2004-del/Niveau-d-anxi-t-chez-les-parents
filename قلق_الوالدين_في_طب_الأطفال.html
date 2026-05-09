@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لستم وحدكم أبدًا – قلق الوالدين في طب الأطفال | براهيم خميسي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --navy: #0a2342;
+    --teal: #1a7f8e;
+    --teal-light: #22a8bc;
+    --gold: #e8a020;
+    --gold-light: #f5c842;
+    --rose: #c0395a;
+    --soft-white: #f8fafc;
+    --card-bg: #ffffff;
+    --text-dark: #0d1b2a;
+    --text-mid: #2c4a6e;
+    --text-soft: #5a7a9a;
+    --border: rgba(26,127,142,0.15);
+    --shadow: 0 8px 40px rgba(10,35,66,0.10);
+    --shadow-hover: 0 20px 60px rgba(10,35,66,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    background: var(--soft-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    direction: rtl;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d3060 40%, #1a5c80 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px 80px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 30%, rgba(26,127,142,0.25) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 80% 70%, rgba(232,160,32,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-orbs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.07;
+    animation: floatOrb 8s ease-in-out infinite;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--teal-light); top: -150px; right: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: var(--gold); bottom: -100px; left: 5%; animation-delay: 3s; }
+  .orb-3 { width: 200px; height: 200px; background: var(--rose); top: 40%; left: -80px; animation-delay: 6s; }
+
+  @keyframes floatOrb {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .institutions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+  }
+  .inst-badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 8px 20px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .inst-sep { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
+
+  .hero-tagline {
+    color: var(--gold-light);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .hero-tagline::before, .hero-tagline::after {
+    content: '—';
+    opacity: 0.5;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+  .hero-title span {
+    color: var(--teal-light);
+    position: relative;
+    display: inline-block;
+  }
+  .hero-title span::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 48px;
+  }
+  .stat-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 20px 32px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .stat-pill:hover { transform: translateY(-4px); background: rgba(255,255,255,0.13); }
+  .stat-pill .num {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .stat-pill .lbl {
+    display: block;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 6px;
+    font-weight: 500;
+    max-width: 130px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 30px rgba(26,127,142,0.5);
+    transition: all 0.3s;
+  }
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(26,127,142,0.6);
+  }
+  .hero-cta .arrow { font-size: 1.2rem; transition: transform 0.3s; }
+  .hero-cta:hover .arrow { transform: translateX(-4px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    animation: bounceDown 2s ease-in-out infinite;
+  }
+  .scroll-hint .dot {
+    width: 6px; height: 6px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 90px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-title .accent { color: var(--teal); }
+  .section-desc {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    line-height: 1.8;
+    max-width: 600px;
+  }
+
+  /* ─── WHY SECTION ─── */
+  .why-section { background: white; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  .why-cards { display: flex; flex-direction: column; gap: 16px; }
+  .why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: var(--soft-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .why-card:hover {
+    transform: translateX(-6px);
+    border-color: var(--teal-light);
+    box-shadow: var(--shadow);
+  }
+  .why-card .icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    color: white;
+  }
+  .why-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .why-card p { font-size: 0.85rem; color: var(--text-soft); line-height: 1.6; }
+
+  .stat-showcase {
+    background: linear-gradient(135deg, var(--navy), #1a4080);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-showcase::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(26,127,142,0.3), transparent 70%);
+  }
+  .stat-showcase .big-num {
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    position: relative;
+  }
+  .stat-showcase .big-num sup { font-size: 2rem; vertical-align: super; }
+  .stat-showcase p { font-size: 1rem; color: rgba(255,255,255,0.75); margin-top: 12px; line-height: 1.7; position: relative; }
+  .stat-showcase .note {
+    margin-top: 24px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    position: relative;
+  }
+
+  /* ─── FEELINGS ─── */
+  .feelings-section {
+    background: linear-gradient(180deg, #f0f7fa 0%, white 100%);
+  }
+  .feelings-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 50px;
+    justify-content: center;
+  }
+  .feeling-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 60px;
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .feeling-tag:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26,127,142,0.15);
+  }
+  .feeling-tag .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ─── SUPPORT STEPS ─── */
+  .support-section { background: white; }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .step-card {
+    background: var(--soft-white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s;
+  }
+  .step-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    border-radius: 4px 4px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .step-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: transparent; }
+  .step-card:hover::before { opacity: 1; }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 14px;
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+  .step-card h3 { font-size: 1rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+  .step-card p { font-size: 0.83rem; color: var(--text-soft); line-height: 1.7; }
+
+  /* ─── TIPS ─── */
+  .tips-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d3060 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .tips-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(26,127,142,0.2), transparent 60%);
+  }
+  .tips-section .section-title { color: white; }
+  .tips-section .section-desc { color: rgba(255,255,255,0.6); }
+  .tips-section .section-label {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+  }
+  .tip-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 28px 24px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    position: relative;
+  }
+  .tip-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-5px);
+    border-color: rgba(26,127,142,0.5);
+  }
+  .tip-card .tip-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .tip-card h3 { font-size: 1rem; font-weight: 800; color: var(--gold-light); margin-bottom: 8px; }
+  .tip-card p { font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+  /* ─── RECOMMENDATIONS ─── */
+  .reco-section { background: var(--soft-white); }
+  .reco-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .reco-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .reco-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+  .reco-card .reco-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+  .reco-card.for-parents .reco-label { background: rgba(26,127,142,0.1); color: var(--teal); }
+  .reco-card.for-nurses .reco-label { background: rgba(192,57,90,0.1); color: var(--rose); }
+  .reco-card.for-hospital .reco-label { background: rgba(232,160,32,0.1); color: var(--gold); }
+  .reco-card.for-research .reco-label { background: rgba(10,35,66,0.08); color: var(--navy); }
+  .reco-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .reco-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.87rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .reco-list li::before {
+    content: '✓';
+    width: 20px; height: 20px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .reco-card.for-nurses .reco-list li::before { background: linear-gradient(135deg, var(--rose), #e05075); }
+  .reco-card.for-hospital .reco-list li::before { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+  .reco-card.for-research .reco-list li::before { background: linear-gradient(135deg, var(--navy), #2c4a6e); }
+
+  /* ─── RESULTS ─── */
+  .results-section { background: white; }
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 60px;
+  }
+  .result-card {
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .result-card:hover { transform: scale(1.03); }
+  .result-card.teal { background: linear-gradient(135deg, var(--teal), var(--teal-light)); color: white; }
+  .result-card.gold { background: linear-gradient(135deg, #d4890a, var(--gold-light)); color: white; }
+  .result-card.navy { background: linear-gradient(135deg, var(--navy), #1a4080); color: white; }
+  .result-card .r-num { font-size: 3rem; font-weight: 900; line-height: 1; display: block; }
+  .result-card .r-lbl { font-size: 0.85rem; opacity: 0.85; margin-top: 8px; line-height: 1.5; }
+  .result-card .r-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+  .results-table {
+    margin-top: 40px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  thead tr { background: linear-gradient(135deg, var(--navy), #1a4080); }
+  thead th { padding: 16px 20px; color: white; font-size: 0.85rem; font-weight: 700; text-align: right; }
+  tbody tr { border-bottom: 1px solid #f0f5fa; transition: background 0.2s; }
+  tbody tr:hover { background: #f5fbfc; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody td { padding: 14px 20px; font-size: 0.85rem; color: var(--text-mid); }
+  td .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  td .badge.high { background: rgba(192,57,90,0.1); color: var(--rose); }
+  td .badge.med { background: rgba(232,160,32,0.1); color: #b87c10; }
+  td .badge.low { background: rgba(26,127,142,0.1); color: var(--teal); }
+
+  /* ─── MESSAGE ─── */
+  .message-section {
+    background: linear-gradient(135deg, #fff8f0 0%, #fef3e8 100%);
+    padding: 80px 20px;
+  }
+  .message-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 28px;
+    padding: 60px 50px;
+    box-shadow: 0 20px 60px rgba(232,160,32,0.12);
+    border: 1px solid rgba(232,160,32,0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .message-box::before {
+    content: '❤';
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.03;
+    top: -30px;
+    right: -30px;
+    line-height: 1;
+  }
+  .message-box .quote-mark {
+    font-size: 6rem;
+    color: var(--gold-light);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 24px;
+    opacity: 0.4;
+  }
+  .message-box p {
+    font-size: 1.2rem;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 500;
+  }
+  .message-box p strong { color: var(--navy); font-weight: 800; }
+  .message-box .sign {
+    margin-top: 32px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    border-top: 1px solid #f0e8d8;
+    padding-top: 24px;
+  }
+
+  /* ─── QR SECTION ─── */
+  .qr-section {
+    background: white;
+    padding: 80px 20px;
+  }
+  .qr-box {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+    background: linear-gradient(135deg, var(--navy), #1a4080);
+    border-radius: 28px;
+    padding: 60px;
+    overflow: hidden;
+    position: relative;
+  }
+  .qr-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 100% 50%, rgba(26,127,142,0.2), transparent 60%);
+  }
+  .qr-content { position: relative; }
+  .qr-content .section-label { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+  .qr-content h2 { font-size: 2rem; font-weight: 900; color: white; margin-bottom: 16px; }
+  .qr-content p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 24px; }
+  .qr-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .qr-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.75);
+  }
+  .qr-features li span.check {
+    width: 20px; height: 20px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .qr-display {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .qr-frame {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  #qrcode canvas, #qrcode img { border-radius: 8px; }
+  .qr-caption {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.7rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+  footer strong { color: rgba(255,255,255,0.9); }
+  footer .footer-logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 16px 30px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav.scrolled {
+    background: rgba(10,35,66,0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    padding: 12px 30px;
+  }
+  .nav-brand {
+    color: white;
+    font-size: 1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-brand .dot { width: 8px; height: 8px; background: var(--teal-light); border-radius: 50%; }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal-light); }
+
+  @media (max-width: 768px) {
+    .why-grid, .reco-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .qr-box { grid-template-columns: 1fr; text-align: center; padding: 40px 30px; }
+    .qr-display { align-items: center; }
+    .nav-links { display: none; }
+    .hero-stats { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="dot"></span>
+    لستم وحدكم أبدًا
+  </div>
+  <ul class="nav-links">
+    <li><a href="#why">لماذا هذا القلق؟</a></li>
+    <li><a href="#support">كيف ندعمكم</a></li>
+    <li><a href="#tips">نصائح عملية</a></li>
+    <li><a href="#results">النتائج</a></li>
+    <li><a href="#reco">التوصيات</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="institutions fade-in">
+    <span class="inst-badge">جامعة جندوبة</span>
+    <span class="inst-sep">|</span>
+    <span class="inst-badge">المعهد العالي لعلوم التمريض بالكاف</span>
+  </div>
+
+  <div class="hero-tagline fade-in fade-in-delay-1">لستم وحدكم أبدًا</div>
+
+  <h1 class="hero-title fade-in fade-in-delay-2">
+    <span>قلق الوالدين</span><br>في طب الأطفال
+  </h1>
+
+  <p class="hero-subtitle fade-in fade-in-delay-3">هدوءكم وصبركم... أجمل دواء لطفلكم</p>
+
+  <div class="hero-stats fade-in fade-in-delay-4">
+    <div class="stat-pill">
+      <span class="num">76.5%</span>
+      <span class="lbl">من الآباء يعانون قلقًا مرتفعًا</span>
+    </div>
+    <div class="stat-pill">
+      <span class="num">4</span>
+      <span class="lbl">أسباب رئيسية للقلق</span>
+    </div>
+    <div class="stat-pill">
+      <span class="num">5</span>
+      <span class="lbl">محاور دعم متخصص لكم</span>
+    </div>
+  </div>
+
+  <a href="#why" class="hero-cta fade-in">
+    اكتشف المزيد
+    <span class="arrow">↓</span>
+  </a>
+
+  <div class="scroll-hint">
+    <span>مرِّر للأسفل</span>
+    <div class="dot"></div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-label">لماذا هذا القلق؟</div>
+    <h2 class="section-title">مشاعركم <span class="accent">طبيعية تمامًا</span></h2>
+    <p class="section-desc">دخول طفلكم المستشفى تجربة صعبة ومؤثرة. إليكم أبرز الأسباب التي تجعل القلق أمرًا مفهومًا ومتوقعًا.</p>
+
+    <div class="why-grid fade-in" style="margin-top:60px">
+      <div class="why-cards">
+        <div class="why-card">
+          <div class="icon">🔍</div>
+          <div>
+            <h4>التخوف من تطور حالة طفلكم</h4>
+            <p>الخوف على صحة طفلكم وعدم معرفة مآل المرض يولّد حالة من الترقب المستمر.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="icon">⏰</div>
+          <div>
+            <h4>الإقامة الطويلة في المستشفى</h4>
+            <p>الابتعاد عن البيئة المألوفة والانتظار المطوّل يُنهكان القوى ويُضعفان الطاقة.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="icon">💬</div>
+          <div>
+            <h4>الحاجة إلى معلومات أكثر وضوحًا</h4>
+            <p>الغموض حول التشخيص أو مسار العلاج يُغذّي القلق. المعلومة الواضحة تريح القلب.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="icon">🌙</div>
+          <div>
+            <h4>التواجد المستمر ليلاً ونهارًا</h4>
+            <p>قلة النوم والسهر المتواصل يُضاعفان من الضغط النفسي والإرهاق العاطفي.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-showcase fade-in fade-in-delay-2">
+        <div class="big-num">76.5<sup>%</sup></div>
+        <p>من الوالدين يشعرون بقلق <strong>مرتفع</strong><br>أثناء إقامة طفلهم بالمستشفى</p>
+        <div class="note">
+          📊 نتائج مستخلصة من دراسة ميدانية أجريت بالمستشفى الجهوي بالكاف وجندوبة — قسم طب الأطفال العام
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEELINGS -->
+<section class="feelings-section" id="feelings">
+  <div class="container">
+    <div class="section-label">ما تشعرون به</div>
+    <h2 class="section-title">من الطبيعي أن <span class="accent">تشعروا بـ...</span></h2>
+    <p class="section-desc">كل هذه المشاعر هي ردود فعل طبيعية لوالدَين يحبّان طفلهما ويخافان عليه.</p>
+
+    <div class="feelings-row fade-in" style="margin-top:50px">
+      <div class="feeling-tag"><span class="dot" style="background:#c0395a"></span> القلق والخوف</div>
+      <div class="feeling-tag"><span class="dot" style="background:#e8a020"></span> التوتر المستمر</div>
+      <div class="feeling-tag"><span class="dot" style="background:#1a7f8e"></span> الغضب والإرهاق النفسي</div>
+      <div class="feeling-tag"><span class="dot" style="background:#7c3d9e"></span> شعور بالعجز أحيانًا</div>
+      <div class="feeling-tag"><span class="dot" style="background:#2a7a4a"></span> الحزن والانكسار</div>
+      <div class="feeling-tag"><span class="dot" style="background:#0a7bbf"></span> الخوف من المجهول</div>
+    </div>
+
+    <div style="margin-top:50px; max-width:700px; margin-left:auto; margin-right:auto; text-align:center; background:white; border-radius:20px; padding:36px; box-shadow:0 8px 30px rgba(0,0,0,0.06); border: 1px solid var(--border);" class="fade-in">
+      <p style="font-size:1.1rem; color:var(--text-mid); line-height:1.9; font-weight:500;">
+        هذا يعني أن ما تشعرون به هو أمر <strong style="color:var(--teal)">طبيعي تمامًا</strong>،<br>وأنتم <strong style="color:var(--navy)">لستم وحدكم</strong> — نحن معكم لنرافقكم ونساعدكم.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support-section" id="support">
+  <div class="container">
+    <div class="section-label">كيف ندعمكم</div>
+    <h2 class="section-title">نحن ندعمكم <span class="accent">في كل خطوة</span></h2>
+    <p class="section-desc">فريق التمريض يعمل معكم جنبًا إلى جنب لتخفيف الضغط وضمان سلامة طفلكم.</p>
+
+    <div class="steps-grid">
+      <div class="step-card fade-in fade-in-delay-1">
+        <div class="step-num">👥</div>
+        <h3>عمل جماعي</h3>
+        <p>نتقدم معًا ونتعاون من أجل سلامة طفلك في بيئة رعاية متكاملة.</p>
+      </div>
+      <div class="step-card fade-in fade-in-delay-2">
+        <div class="step-num">💡</div>
+        <h3>نصائح عملية</h3>
+        <p>نساعدكم على التعامل مع القلق وتخفيف التوتر بأساليب مجرّبة يوميًا.</p>
+      </div>
+      <div class="step-card fade-in fade-in-delay-3">
+        <div class="step-num">💙</div>
+        <h3>مشاركتكم في رعاية طفلكم</h3>
+        <p>أنتم العنصر الأساسي والداعم الأول في راحة طفلكم وشفائه.</p>
+      </div>
+      <div class="step-card fade-in fade-in-delay-4">
+        <div class="step-num">👂</div>
+        <h3>استماع باهتمام</h3>
+        <p>نوفّر الوقت اللازم للاستماع لمخاوفكم كلها دون استعجال.</p>
+      </div>
+      <div class="step-card fade-in">
+        <div class="step-num">📋</div>
+        <h3>توضيحات منظّمة</h3>
+        <p>نحرص على إعلامكم بكل المستجدات بوضوح وبشكل منتظم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-section" id="tips">
+  <div class="container" style="position:relative">
+    <div class="section-label">نصائح عملية</div>
+    <h2 class="section-title">أشياء بسيطة تساعدكم <span class="accent">على الشعور بتحسن</span></h2>
+    <p class="section-desc">هذه الأدوات البسيطة ستساعدكم على إدارة القلق والحفاظ على طاقتكم لأجل طفلكم.</p>
+
+    <div class="tips-grid">
+      <div class="tip-card fade-in fade-in-delay-1">
+        <span class="tip-icon">❤️</span>
+        <h3>ذكّروا أنفسكم دائمًا</h3>
+        <p>حبكم وهدوءكم هما الدواء الحقيقي والأساسي لشفاء طفلكم.</p>
+      </div>
+      <div class="tip-card fade-in fade-in-delay-2">
+        <span class="tip-icon">🧘</span>
+        <h3>خذوا فترات راحة</h3>
+        <p>حتى لو كانت قصيرة — دقائق من الهدوء تعيد شحن طاقتكم.</p>
+      </div>
+      <div class="tip-card fade-in fade-in-delay-3">
+        <span class="tip-icon">💬</span>
+        <h3>عبّروا عن مخاوفكم</h3>
+        <p>الفريق الطبي كله هنا للاستماع إليكم في كل وقت وفي كل سؤال.</p>
+      </div>
+      <div class="tip-card fade-in fade-in-delay-4">
+        <span class="tip-icon">🤝</span>
+        <h3>تقبّلوا المساعدة</h3>
+        <p>من الأصدقاء والعائلة — دون شعور بالذنب. القوة في طلب الدعم.</p>
+      </div>
+      <div class="tip-card fade-in">
+        <span class="tip-icon">🌬️</span>
+        <h3>تنفسوا بعمق</h3>
+        <p>استنشقوا الهواء لمدة 4 ثوانٍ، ثم أخرجوه ببطء لمدة 6 ثوانٍ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results-section" id="results">
+  <div class="container">
+    <div class="section-label">نتائج الدراسة</div>
+    <h2 class="section-title">ماذا <span class="accent">كشفت الأرقام؟</span></h2>
+    <p class="section-desc">دراسة ميدانية أُجريت على عيّنة من والدي الأطفال المقيمين في أقسام طب الأطفال.</p>
+
+    <div class="results-grid fade-in">
+      <div class="result-card teal">
+        <span class="r-icon">📊</span>
+        <span class="r-num">76.5%</span>
+        <span class="r-lbl">من الآباء يعانون مستوى قلق مرتفعًا</span>
+      </div>
+      <div class="result-card gold">
+        <span class="r-icon">👩‍⚕️</span>
+        <span class="r-num">82%</span>
+        <span class="r-lbl">من الآباء يرغبون في مزيد من الدعم من فريق التمريض</span>
+      </div>
+      <div class="result-card navy">
+        <span class="r-icon">📅</span>
+        <span class="r-num">+3</span>
+        <span class="r-lbl">أيام متوسط مدة الإقامة عند ارتفاع مستوى القلق</span>
+      </div>
+    </div>
+
+    <div class="results-table fade-in" style="margin-top:40px">
+      <table>
+        <thead>
+          <tr>
+            <th>عامل القلق</th>
+            <th>النسبة</th>
+            <th>المستوى</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>الخوف من تطور حالة الطفل</td>
+            <td><strong>76.5%</strong></td>
+            <td><span class="badge high">مرتفع جداً</span></td>
+          </tr>
+          <tr>
+            <td>غياب معلومات كافية حول التشخيص</td>
+            <td><strong>68.3%</strong></td>
+            <td><span class="badge high">مرتفع</span></td>
+          </tr>
+          <tr>
+            <td>الإرهاق الناتج عن السهر الليلي</td>
+            <td><strong>61.7%</strong></td>
+            <td><span class="badge med">متوسط–مرتفع</span></td>
+          </tr>
+          <tr>
+            <td>التوتر من الإجراءات الطبية</td>
+            <td><strong>54.2%</strong></td>
+            <td><span class="badge med">متوسط</span></td>
+          </tr>
+          <tr>
+            <td>الشعور بالعزلة في المستشفى</td>
+            <td><strong>43.1%</strong></td>
+            <td><span class="badge low">متوسط</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section class="reco-section" id="reco">
+  <div class="container">
+    <div class="section-label">التوصيات</div>
+    <h2 class="section-title">ماذا <span class="accent">نوصي؟</span></h2>
+    <p class="section-desc">بناءً على نتائج الدراسة، وُضعت هذه التوصيات لتحسين تجربة الآباء والأطفال في الرعاية الصحية.</p>
+
+    <div class="reco-grid fade-in">
+      <div class="reco-card for-parents">
+        <span class="reco-label">للوالدين</span>
+        <h3>ما يمكنكم فعله</h3>
+        <ul class="reco-list">
+          <li>لا تترددوا في طرح أسئلتكم على الفريق الطبي في أي وقت</li>
+          <li>اطلبوا شرحًا واضحًا لكل إجراء يُجرى لطفلكم</li>
+          <li>خصّصوا وقتًا للراحة حتى تتمكنوا من الاهتمام بطفلكم</li>
+          <li>استعينوا بأفراد العائلة لمشاركة الأعباء</li>
+        </ul>
+      </div>
+      <div class="reco-card for-nurses">
+        <span class="reco-label">لفريق التمريض</span>
+        <h3>دور الممرض في دعم الأسرة</h3>
+        <ul class="reco-list">
+          <li>إعطاء الوالدين وقتًا كافيًا للاستماع والإجابة</li>
+          <li>الشرح الواضح والمبسّط لكل إجراء طبي</li>
+          <li>تضمين الوالدين في خطة رعاية الطفل</li>
+          <li>التعرّف على مستوى القلق وتقديم الدعم المناسب</li>
+        </ul>
+      </div>
+      <div class="reco-card for-hospital">
+        <span class="reco-label">للمؤسسة الصحية</span>
+        <h3>على مستوى المستشفى</h3>
+        <ul class="reco-list">
+          <li>توفير بروتوكول استقبال مخصص لأسر الأطفال</li>
+          <li>تنظيم ورش دعم نفسي للآباء داخل المستشفى</li>
+          <li>توزيع نشرات تثقيفية حول إدارة القلق</li>
+          <li>تخصيص أماكن راحة لمرافقي الأطفال داخل المستشفى</li>
+        </ul>
+      </div>
+      <div class="reco-card for-research">
+        <span class="reco-label">للبحث العلمي</span>
+        <h3>للدراسات المستقبلية</h3>
+        <ul class="reco-list">
+          <li>إجراء دراسات مقارنة بين مختلف المستشفيات والمناطق</li>
+          <li>قياس أثر التدخل التمريضي على مستوى قلق الوالدين</li>
+          <li>تطوير مقاييس موحدة مخصصة للسياق التونسي</li>
+          <li>دراسة علاقة قلق الوالدين بمدة إقامة الطفل</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="message-section" id="message">
+  <div class="container">
+    <div class="message-box fade-in">
+      <span class="quote-mark">"</span>
+      <p>
+        صحتكم النفسية وصبركم هما <strong>القوة الحقيقية لصغيركم</strong>.<br>
+        حتى في أصعب اللحظات، دوركم كوالدين لا يُعوَّض.<br>
+        نحن نؤمن بقوتكم وسنكون بجانبكم لتجاوز هذه المرحلة معًا.
+      </p>
+      <div class="sign">
+        رسالة من القلب — فريق طب الأطفال 💙<br>
+        <strong>المستشفى الجهوي بالكاف وجندوبة</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QR CODE -->
+<section class="qr-section" id="qr">
+  <div class="container">
+    <div class="qr-box fade-in">
+      <div class="qr-content">
+        <div class="section-label">امسح رمز QR</div>
+        <h2>للتعرّف على طرق التخفيف من القلق ودعم طفلكم</h2>
+        <p>امسح الرمز بكاميرا هاتفك للوصول الفوري إلى جميع المعلومات وأحدث النصائح للوالدين.</p>
+        <ul class="qr-features">
+          <li><span class="check">✓</span> نصائح سريعة لإدارة القلق</li>
+          <li><span class="check">✓</span> تقنيات فعّالة لتهدئة الجهاز العصبي</li>
+          <li><span class="check">✓</span> دعم معنوي وروابط مفيدة</li>
+          <li><span class="check">✓</span> معلومات حول الرعاية التمريضية للأطفال</li>
+        </ul>
+      </div>
+      <div class="qr-display">
+        <div class="qr-frame">
+          <div id="qrcode"></div>
+        </div>
+        <div class="qr-caption">امسح بكاميرا هاتفك</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logos">
+    <span>جامعة جندوبة</span>
+    <span>|</span>
+    <span>المعهد العالي لعلوم التمريض بالكاف</span>
+    <span>|</span>
+    <span>المستشفى الجهوي بالكاف وجندوبة</span>
+  </div>
+  <p>
+    <strong>إعداد:</strong> براهيم خميسي — طالب في العلوم التمريضية<br>
+    تحت إشراف الأساتذة المختصين — قسم طب الأطفال العام<br>
+    <strong>السنة الدراسية 2024–2025</strong>
+  </p>
+  <p style="margin-top:16px; opacity:0.4; font-size:0.75rem;">هذا الموقع جزء من عمل بحثي أكاديمي — TFE في علوم التمريض</p>
+</footer>
+
+<script>
+// QR CODE
+window.addEventListener('load', function() {
+  new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href || "https://قلق-الوالدين.tn",
+    width: 180,
+    height: 180,
+    colorDark: "#0a2342",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+});
+
+// NAVBAR scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+// FADE IN on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Hero instant visibility
+document.querySelectorAll('.hero .fade-in').forEach(el => {
+  setTimeout(() => el.classList.add('visible'), 200);
+});
+</script>
+</body>
+</html>
